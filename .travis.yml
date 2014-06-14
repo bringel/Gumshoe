@@ -1,0 +1,4 @@
+language: objective-c
+xcode_workspace: Visor.xcworkspace 
+xcode_scheme: Visor
+
