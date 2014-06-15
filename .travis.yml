@@ -2,3 +2,6 @@ language: objective-c
 xcode_workspace: Visor.xcworkspace 
 xcode_scheme: Visor
 
+before_script:
+  - export LANG=en_US.UTF-8
+  - sudo gem install cocoapods
