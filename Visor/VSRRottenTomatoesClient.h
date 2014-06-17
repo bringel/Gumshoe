@@ -10,4 +10,10 @@
 
 @interface VSRRottenTomatoesClient : AFHTTPSessionManager
 
++ (instancetype)sharedManager;
+- (NSString *)apiKey;
+
+- (void)searchMoviesWithTitle:(NSString *)title completion:(void (^)(NSDictionary *))completion;
+
+
 @end

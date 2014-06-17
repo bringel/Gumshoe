@@ -10,4 +10,6 @@
 
 @interface VSRTitleSearchViewController : UITableViewController
 
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+
 @end

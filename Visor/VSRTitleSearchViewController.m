@@ -7,9 +7,14 @@
 //
 
 #import "VSRTitleSearchViewController.h"
+#import "VSRRottenTomatoesClient.h"
+#import "VSRTitleCell.h"
 
-@interface VSRTitleSearchViewController ()
 
+@interface VSRTitleSearchViewController () <UISearchBarDelegate>
+
+@property (nonatomic, strong) VSRRottenTomatoesClient *rottenTomatoesClient;
+@property (nonatomic, strong) NSArray *searchResults;
 @end
 
 @implementation VSRTitleSearchViewController
@@ -19,6 +24,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [self.tableView registerNib:[UINib nibWithNibName:@"VSRTitleCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"titleCell"];
     }
     return self;
 }
@@ -40,32 +46,73 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (VSRRottenTomatoesClient *)rottenTomatoesClient{
+    if(_rottenTomatoesClient == nil){
+        _rottenTomatoesClient = [VSRRottenTomatoesClient sharedManager];
+    }
+    return _rottenTomatoesClient;
+}
+
+- (NSArray *)searchResults{
+    if(_searchResults == nil){
+        _searchResults = [[NSArray alloc] init];
+    }
+    return _searchResults;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    if([searchBar isEqual:self.searchBar]){
+        NSString *searchString = searchBar.text;
+        if([[searchBar.scopeButtonTitles objectAtIndex:searchBar.selectedScopeButtonIndex] isEqualToString:@"Movies"]){
+            [self.rottenTomatoesClient searchMoviesWithTitle:searchString completion:^(NSDictionary *responseData) {
+                self.searchResults = [responseData objectForKey:@"movies"];
+                [self.searchDisplayController.searchResultsTableView reloadData];
+            }];
+        }
+    }
+}
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView{
+    [tableView registerNib:[UINib nibWithNibName:@"VSRTitleCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"titleCell"];
+    tableView.rowHeight = 62.0;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.searchResults.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    VSRTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell" forIndexPath:indexPath];
+    cell.posterImageView.image = nil;
     
     // Configure the cell...
+    NSString *posterURLString = [[[self.searchResults objectAtIndex:indexPath.row] objectForKey:@"posters"] objectForKey:@"thumbnail"];
+    NSURL *posterURL = [NSURL URLWithString:posterURLString];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionDataTask *task = [session dataTaskWithURL:posterURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(((NSHTTPURLResponse *)response).statusCode == 200){
+            NSLog(@"Got image data %@",response.URL);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.posterImageView.image = [UIImage imageWithData:data];
+            });
+            //[self.searchDisplayController.searchResultsTableView reloadData];
+        }
+    }];
     
+    [task resume];
+    cell.titleLabel.text = [[self.searchResults objectAtIndex:indexPath.row] objectForKey:@"title"];
     return cell;
+    
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
