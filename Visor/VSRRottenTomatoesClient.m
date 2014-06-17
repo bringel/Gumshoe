@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRRottenTomatoesManager.h"
+#import "VSRRottenTomatoesClient.h"
 
-@implementation VSRRottenTomatoesManager
+@implementation VSRRottenTomatoesClient
 
 @end

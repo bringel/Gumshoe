@@ -8,6 +8,6 @@
 
 #import "AFHTTPSessionManager.h"
 
-@interface VSRRottenTomatoesManager : AFHTTPSessionManager
+@interface VSRRottenTomatoesClient : AFHTTPSessionManager
 
 @end
