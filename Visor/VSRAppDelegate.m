@@ -7,12 +7,15 @@
 //
 
 #import "VSRAppDelegate.h"
+#import "AFNetworkActivityLogger.h"
 
 @implementation VSRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    
     return YES;
 }
 							
