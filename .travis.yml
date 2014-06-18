@@ -2,6 +2,4 @@ language: objective-c
 xcode_workspace: Visor.xcworkspace 
 xcode_scheme: Visor
 
-before_script:
-  - export LANG=en_US.UTF-8
-  - travis_retry gem update cocoapods
+before_script: [travis_retry gem update cocoapods]
