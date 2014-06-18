@@ -4,4 +4,4 @@ xcode_scheme: Visor
 
 before_script:
   - export LANG=en_US.UTF-8
-  - sudo gem install cocoapods
+  - travis_retry gem update cocoapods
