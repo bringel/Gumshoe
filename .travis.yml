@@ -2,4 +2,4 @@ language: objective-c
 xcode_workspace: Visor.xcworkspace 
 xcode_scheme: Visor
 
-before_script: [travis_retry gem update cocoapods]
+before_install: [travis_retry gem update cocoapods]
