@@ -1,5 +1,6 @@
 language: objective-c
 xcode_workspace: Visor.xcworkspace 
 xcode_scheme: Visor
+xcode_sdk: [iphonesimulator7.0, iphonesimulator7.1]
 
 before_install: [travis_retry gem update cocoapods]
