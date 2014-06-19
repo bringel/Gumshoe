@@ -12,5 +12,5 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-
+@property (nonatomic, strong) NSData *posterImageData;
 @end

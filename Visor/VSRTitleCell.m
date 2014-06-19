@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)setPosterImageData:(NSData *)posterImageData{
+    _posterImageData = posterImageData;
+    self.posterImageView.image = [UIImage imageWithData:posterImageData];
+}
+
 - (void)awakeFromNib
 {
     // Initialization code

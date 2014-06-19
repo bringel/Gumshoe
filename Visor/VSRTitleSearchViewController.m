@@ -9,6 +9,7 @@
 #import "VSRTitleSearchViewController.h"
 #import "VSRRottenTomatoesClient.h"
 #import "VSRTitleCell.h"
+#import "VSRTitleDetailViewController.h"
 
 
 @interface VSRTitleSearchViewController () <UISearchBarDelegate>
@@ -38,6 +39,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationController.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,14 +97,14 @@
     cell.posterImageView.image = nil;
     
     // Configure the cell...
-    NSString *posterURLString = [[[self.searchResults objectAtIndex:indexPath.row] objectForKey:@"posters"] objectForKey:@"thumbnail"];
+    NSString *posterURLString = [[[self.searchResults objectAtIndex:indexPath.row] objectForKey:@"posters"] objectForKey:@"original"];
     NSURL *posterURL = [NSURL URLWithString:posterURLString];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionDataTask *task = [session dataTaskWithURL:posterURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if(((NSHTTPURLResponse *)response).statusCode == 200){
             NSLog(@"Got image data %@",response.URL);
             dispatch_async(dispatch_get_main_queue(), ^{
-                cell.posterImageView.image = [UIImage imageWithData:data];
+                cell.posterImageData = data;
             });
             //[self.searchDisplayController.searchResultsTableView reloadData];
         }
@@ -112,6 +114,10 @@
     cell.titleLabel.text = [[self.searchResults objectAtIndex:indexPath.row] objectForKey:@"title"];
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"showTitleDetails" sender:self];
 }
 
 /*
@@ -152,7 +158,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -160,7 +166,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"showTitleDetails"]){
+        VSRTitleDetailViewController *detailVC = (VSRTitleDetailViewController *)segue.destinationViewController;
+        NSIndexPath *index = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSDictionary *titleData = [self.searchResults objectAtIndex:index.row];
+        VSRTitleCell *cell = (VSRTitleCell *)[self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:index];
+        detailVC.titleData = titleData;
+        detailVC.titlePosterData = cell.posterImageData;
+    }
 }
-*/
+
 
 @end

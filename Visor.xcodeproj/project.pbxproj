@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1980B8195274700089415F /* VSRTitleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1980B7195274700089415F /* VSRTitleDetailViewController.m */; };
 		2F299795194CD39200DB6174 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F299793194CD39200DB6174 /* Visor.xcdatamodeld */; };
 		2F299798194CD74F00DB6174 /* VSRStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F299797194CD74F00DB6174 /* VSRStoreController.m */; };
 		2F29979B194CDA6900DB6174 /* VSRParseSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29979A194CDA6900DB6174 /* VSRParseSyncController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F1980B6195274700089415F /* VSRTitleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRTitleDetailViewController.h; sourceTree = "<group>"; };
+		2F1980B7195274700089415F /* VSRTitleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRTitleDetailViewController.m; sourceTree = "<group>"; };
 		2F299794194CD39200DB6174 /* Visor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visor.xcdatamodel; sourceTree = "<group>"; };
 		2F299796194CD74F00DB6174 /* VSRStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRStoreController.h; sourceTree = "<group>"; };
 		2F299797194CD74F00DB6174 /* VSRStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRStoreController.m; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				2F29979A194CDA6900DB6174 /* VSRParseSyncController.m */,
 				2F2997A1194E3F8600DB6174 /* VSRTitleSearchViewController.h */,
 				2F2997A2194E3F8600DB6174 /* VSRTitleSearchViewController.m */,
+				2F1980B6195274700089415F /* VSRTitleDetailViewController.h */,
+				2F1980B7195274700089415F /* VSRTitleDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
+				2F1980B8195274700089415F /* VSRTitleDetailViewController.m in Sources */,
 				2F2997A0194E1F5A00DB6174 /* VSRRottenTomatoesClient.m in Sources */,
 				2F2997A3194E3F8600DB6174 /* VSRTitleSearchViewController.m in Sources */,
 				2F29979B194CDA6900DB6174 /* VSRParseSyncController.m in Sources */,
