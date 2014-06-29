@@ -16,4 +16,5 @@ typedef NS_ENUM(NSUInteger, VSRTitleType) {
 
 + (instancetype)sharedController;
 
+- (BOOL)addMovieWithMovieInfo:(NSDictionary *)movieInfo coverImage:(NSData *)imageData;
 @end

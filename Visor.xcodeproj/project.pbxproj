@@ -30,11 +30,19 @@
 		2F85A8301947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8381947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8361947F35200664182 /* InfoPlist.strings */; };
 		2F85A83A1947F35200664182 /* VisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A8391947F35200664182 /* VisorTests.m */; };
+		2FEAD6F5195F22BC00BC19F6 /* VSRMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */; };
 		A13F3A4572594A43A884629F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB245FAC40640CA8B2D68BF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2F85A8311947F35200664182 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F85A8001947F35200664182 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F85A8071947F35200664182;
+			remoteInfo = Visor;
+		};
+		2FA753DC195A4DA6008849E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F85A8001947F35200664182 /* Project object */;
 			proxyType = 1;
@@ -77,6 +85,8 @@
 		2F85A8351947F35200664182 /* VisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VisorTests-Info.plist"; sourceTree = "<group>"; };
 		2F85A8371947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F85A8391947F35200664182 /* VisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisorTests.m; sourceTree = "<group>"; };
+		2FEAD6F3195F22BC00BC19F6 /* VSRMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRMovie.h; sourceTree = "<group>"; };
+		2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRMovie.m; sourceTree = "<group>"; };
 		A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BCB245FAC40640CA8B2D68BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				2F299793194CD39200DB6174 /* Visor.xcdatamodeld */,
+				2FEAD6F3195F22BC00BC19F6 /* VSRMovie.h */,
+				2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -231,6 +243,7 @@
 				2F85A8051947F35200664182 /* Frameworks */,
 				2F85A8061947F35200664182 /* Resources */,
 				26F7F5508F614F75A60806FC /* Copy Pods Resources */,
+				2FEAD6F2195A6DC400BC19F6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,6 +266,7 @@
 			);
 			dependencies = (
 				2F85A8321947F35200664182 /* PBXTargetDependency */,
+				2FA753DD195A4DA6008849E4 /* PBXTargetDependency */,
 			);
 			name = VisorTests;
 			productName = VisorTests;
@@ -348,6 +362,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2FEAD6F2195A6DC400BC19F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -358,6 +385,7 @@
 				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
 				2F1980B8195274700089415F /* VSRTitleDetailViewController.m in Sources */,
 				2F2997A0194E1F5A00DB6174 /* VSRRottenTomatoesClient.m in Sources */,
+				2FEAD6F5195F22BC00BC19F6 /* VSRMovie.m in Sources */,
 				2F2997A3194E3F8600DB6174 /* VSRTitleSearchViewController.m in Sources */,
 				2F29979B194CDA6900DB6174 /* VSRParseSyncController.m in Sources */,
 				2F299795194CD39200DB6174 /* Visor.xcdatamodeld in Sources */,
@@ -382,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = 2F85A8071947F35200664182 /* Visor */;
 			targetProxy = 2F85A8311947F35200664182 /* PBXContainerItemProxy */;
+		};
+		2FA753DD195A4DA6008849E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F85A8071947F35200664182 /* Visor */;
+			targetProxy = 2FA753DC195A4DA6008849E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

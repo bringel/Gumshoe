@@ -15,5 +15,8 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIButton *addButton;
+
+- (IBAction)addTitle:(id)sender;
 
 @end

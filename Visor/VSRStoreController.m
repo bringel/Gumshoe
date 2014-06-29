@@ -9,6 +9,7 @@
 #import "VSRAppDelegate.h"
 #import "VSRStoreController.h"
 #import "MDMCoreData.h"
+#import "VSRMovie.h"
 
 @interface VSRStoreController ()
 
@@ -41,6 +42,19 @@
         self.persistenceController = [[MDMPersistenceController alloc] initWithStoreURL:storeURL modelURL:modelURL];
     }
     return self;
+}
+
+- (BOOL)addMovieWithMovieInfo:(NSDictionary *)movieInfo coverImage:(NSData *)imageData{
+    __block BOOL success;
+    VSRMovie *movie = [NSEntityDescription insertNewObjectForEntityForName:@"VSRMovie" inManagedObjectContext:self.persistenceController.managedObjectContext];
+    movie.title = movieInfo[@"title"];
+    movie.coverImage = imageData;
+    movie.rottenTomatoesID = movieInfo[@"id"];
+
+    [self.persistenceController saveContextAndWait:YES completion:^(NSError *error) {
+        success = error ? false : true;
+    }];
+    return success;
 }
 
 @end

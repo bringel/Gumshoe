@@ -7,6 +7,7 @@
 //
 
 #import "VSRTitleDetailViewController.h"
+#import "VSRStoreController.h"
 
 @interface VSRTitleDetailViewController ()
 
@@ -29,12 +30,18 @@
     // Do any additional setup after loading the view.
     self.posterImageView.image = [UIImage imageWithData:self.titlePosterData];
     self.titleLabel.text = [self.titleData objectForKey:@"title"];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addTitle:(id)sender{
+    VSRStoreController *controller = [VSRStoreController sharedController];
+    [controller addMovieWithMovieInfo:self.titleData coverImage:self.titlePosterData];
 }
 
 /*
