@@ -26,5 +26,7 @@
     [super tearDown];
 }
 
-
+- (void)testExample{
+    XCTAssertTrue(true, @"true test");
+}
 @end
