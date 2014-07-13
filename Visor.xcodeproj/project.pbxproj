@@ -7,15 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F1980B8195274700089415F /* VSRTitleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1980B7195274700089415F /* VSRTitleDetailViewController.m */; };
-		2F299795194CD39200DB6174 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F299793194CD39200DB6174 /* Visor.xcdatamodeld */; };
-		2F299798194CD74F00DB6174 /* VSRStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F299797194CD74F00DB6174 /* VSRStoreController.m */; };
-		2F29979B194CDA6900DB6174 /* VSRParseSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29979A194CDA6900DB6174 /* VSRParseSyncController.m */; };
 		2F29979D194E062000DB6174 /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F29979C194E062000DB6174 /* apikeys.plist */; };
-		2F2997A0194E1F5A00DB6174 /* VSRRottenTomatoesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29979F194E1F5A00DB6174 /* VSRRottenTomatoesClient.m */; };
-		2F2997A3194E3F8600DB6174 /* VSRTitleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2997A2194E3F8600DB6174 /* VSRTitleSearchViewController.m */; };
-		2F2997A6194FD9A400DB6174 /* VSRTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2997A5194FD9A400DB6174 /* VSRTitleCell.m */; };
-		2F2997AA194FDFFD00DB6174 /* VSRTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2997A9194FDFFD00DB6174 /* VSRTitleCell.xib */; };
 		2F85A80C1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A80E1947F35200664182 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80D1947F35200664182 /* CoreGraphics.framework */; };
 		2F85A8101947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
@@ -30,7 +22,7 @@
 		2F85A8301947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8381947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8361947F35200664182 /* InfoPlist.strings */; };
 		2F85A83A1947F35200664182 /* VisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A8391947F35200664182 /* VisorTests.m */; };
-		2FEAD6F5195F22BC00BC19F6 /* VSRMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */; };
+		2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEAD6F91961015400BC19F6 /* CoreData.framework */; };
 		A13F3A4572594A43A884629F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB245FAC40640CA8B2D68BF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,21 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F1980B6195274700089415F /* VSRTitleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRTitleDetailViewController.h; sourceTree = "<group>"; };
-		2F1980B7195274700089415F /* VSRTitleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRTitleDetailViewController.m; sourceTree = "<group>"; };
-		2F299794194CD39200DB6174 /* Visor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visor.xcdatamodel; sourceTree = "<group>"; };
-		2F299796194CD74F00DB6174 /* VSRStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRStoreController.h; sourceTree = "<group>"; };
-		2F299797194CD74F00DB6174 /* VSRStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRStoreController.m; sourceTree = "<group>"; };
-		2F299799194CDA6900DB6174 /* VSRParseSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRParseSyncController.h; sourceTree = "<group>"; };
-		2F29979A194CDA6900DB6174 /* VSRParseSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRParseSyncController.m; sourceTree = "<group>"; };
 		2F29979C194E062000DB6174 /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
-		2F29979E194E1F5A00DB6174 /* VSRRottenTomatoesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRRottenTomatoesClient.h; sourceTree = "<group>"; };
-		2F29979F194E1F5A00DB6174 /* VSRRottenTomatoesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRRottenTomatoesClient.m; sourceTree = "<group>"; };
-		2F2997A1194E3F8600DB6174 /* VSRTitleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRTitleSearchViewController.h; sourceTree = "<group>"; };
-		2F2997A2194E3F8600DB6174 /* VSRTitleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRTitleSearchViewController.m; sourceTree = "<group>"; };
-		2F2997A4194FD9A400DB6174 /* VSRTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRTitleCell.h; sourceTree = "<group>"; };
-		2F2997A5194FD9A400DB6174 /* VSRTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRTitleCell.m; sourceTree = "<group>"; };
-		2F2997A9194FDFFD00DB6174 /* VSRTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRTitleCell.xib; sourceTree = "<group>"; };
 		2F85A8081947F35200664182 /* Visor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F85A80B1947F35200664182 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F85A80D1947F35200664182 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,8 +63,7 @@
 		2F85A8351947F35200664182 /* VisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VisorTests-Info.plist"; sourceTree = "<group>"; };
 		2F85A8371947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F85A8391947F35200664182 /* VisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisorTests.m; sourceTree = "<group>"; };
-		2FEAD6F3195F22BC00BC19F6 /* VSRMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRMovie.h; sourceTree = "<group>"; };
-		2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRMovie.m; sourceTree = "<group>"; };
+		2FEAD6F91961015400BC19F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BCB245FAC40640CA8B2D68BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */,
 				2F85A80E1947F35200664182 /* CoreGraphics.framework in Frameworks */,
 				2F85A8101947F35200664182 /* UIKit.framework in Frameworks */,
 				2F85A80C1947F35200664182 /* Foundation.framework in Frameworks */,
@@ -139,6 +117,7 @@
 		2F85A80A1947F35200664182 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FEAD6F91961015400BC19F6 /* CoreData.framework */,
 				2F85A80B1947F35200664182 /* Foundation.framework */,
 				2F85A80D1947F35200664182 /* CoreGraphics.framework */,
 				2F85A80F1947F35200664182 /* UIKit.framework */,
@@ -160,8 +139,6 @@
 				2F85A8201947F35200664182 /* Main_iPad.storyboard */,
 				2F85A8261947F35200664182 /* Images.xcassets */,
 				2F85A8121947F35200664182 /* Supporting Files */,
-				2F29979E194E1F5A00DB6174 /* VSRRottenTomatoesClient.h */,
-				2F29979F194E1F5A00DB6174 /* VSRRottenTomatoesClient.m */,
 			);
 			path = Visor;
 			sourceTree = "<group>";
@@ -199,9 +176,6 @@
 		2FB1B1491949297E007DD029 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2F299793194CD39200DB6174 /* Visor.xcdatamodeld */,
-				2FEAD6F3195F22BC00BC19F6 /* VSRMovie.h */,
-				2FEAD6F4195F22BC00BC19F6 /* VSRMovie.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,9 +183,6 @@
 		2FB1B14A19492985007DD029 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2F2997A4194FD9A400DB6174 /* VSRTitleCell.h */,
-				2F2997A5194FD9A400DB6174 /* VSRTitleCell.m */,
-				2F2997A9194FDFFD00DB6174 /* VSRTitleCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -219,14 +190,6 @@
 		2FB1B14B1949298A007DD029 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2F299796194CD74F00DB6174 /* VSRStoreController.h */,
-				2F299797194CD74F00DB6174 /* VSRStoreController.m */,
-				2F299799194CDA6900DB6174 /* VSRParseSyncController.h */,
-				2F29979A194CDA6900DB6174 /* VSRParseSyncController.m */,
-				2F2997A1194E3F8600DB6174 /* VSRTitleSearchViewController.h */,
-				2F2997A2194E3F8600DB6174 /* VSRTitleSearchViewController.m */,
-				2F1980B6195274700089415F /* VSRTitleDetailViewController.h */,
-				2F1980B7195274700089415F /* VSRTitleDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,7 +279,6 @@
 				2F85A8271947F35200664182 /* Images.xcassets in Resources */,
 				2F29979D194E062000DB6174 /* apikeys.plist in Resources */,
 				2F85A81F1947F35200664182 /* Main_iPhone.storyboard in Resources */,
-				2F2997AA194FDFFD00DB6174 /* VSRTitleCell.xib in Resources */,
 				2F85A8161947F35200664182 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,15 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
-				2F1980B8195274700089415F /* VSRTitleDetailViewController.m in Sources */,
-				2F2997A0194E1F5A00DB6174 /* VSRRottenTomatoesClient.m in Sources */,
-				2FEAD6F5195F22BC00BC19F6 /* VSRMovie.m in Sources */,
-				2F2997A3194E3F8600DB6174 /* VSRTitleSearchViewController.m in Sources */,
-				2F29979B194CDA6900DB6174 /* VSRParseSyncController.m in Sources */,
-				2F299795194CD39200DB6174 /* Visor.xcdatamodeld in Sources */,
 				2F85A8181947F35200664182 /* main.m in Sources */,
-				2F2997A6194FD9A400DB6174 /* VSRTitleCell.m in Sources */,
-				2F299798194CD74F00DB6174 /* VSRStoreController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,19 +579,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2F299793194CD39200DB6174 /* Visor.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2F299794194CD39200DB6174 /* Visor.xcdatamodel */,
-			);
-			currentVersion = 2F299794194CD39200DB6174 /* Visor.xcdatamodel */;
-			path = Visor.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 2F85A8001947F35200664182 /* Project object */;
 }

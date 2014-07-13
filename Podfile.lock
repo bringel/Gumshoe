@@ -23,8 +23,11 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bolts (1.1.0)
-  - Facebook-iOS-SDK (3.14.1):
+  - Facebook-iOS-SDK (3.15.1):
     - Bolts
+  - Mantle (1.5):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.5)
   - MDMCoreData (1.1.0):
     - MDMCoreData/MDMCoreDataCore
     - MDMCoreData/MDMFetchedResultsCollectionDataSource
@@ -46,6 +49,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
   - AFNetworking (~> 2.0)
+  - Mantle (~> 1.5)
   - MDMCoreData (~> 1.0)
   - Parse (~> 1.2)
 
@@ -53,7 +57,8 @@ SPEC CHECKSUMS:
   AFNetworkActivityLogger: 45ca411593444cbdc401b12924b4c17082ad512a
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   Bolts: 91c2af8eae1d44e1dd75946a5b0ae04a43ea43e4
-  Facebook-iOS-SDK: e9b3d5ac54ee3e5e693f4eef470b97911b3d076d
+  Facebook-iOS-SDK: 56214af8e0ef16e751eb2804250326b709e571b8
+  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   MDMCoreData: 82139593489552487049e904998c7f5cc1c57c28
   Parse: ffebaecaddd32cb52671010f81567c298ff93d04
 
