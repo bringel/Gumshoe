@@ -520,6 +520,7 @@
 		};
 		2F85A8411947F35200664182 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visor.app/Visor";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -542,6 +543,7 @@
 		};
 		2F85A8421947F35200664182 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visor.app/Visor";
 				FRAMEWORK_SEARCH_PATHS = (
