@@ -6,6 +6,4 @@ pod "MDMCoreData", "~> 1.0"
 pod "AFNetworkActivityLogger", "~> 2.0"
 pod "Mantle", "~> 1.5"
 
-target :test do
-  pod "OCMock", "~> 3.0"
-end
+pod "OCMock", "~> 3.0"
