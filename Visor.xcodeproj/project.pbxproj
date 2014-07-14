@@ -21,7 +21,9 @@
 		2F85A82F1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A8301947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8381947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8361947F35200664182 /* InfoPlist.strings */; };
-		2F85A83A1947F35200664182 /* VisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A8391947F35200664182 /* VisorTests.m */; };
+		2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB019736548008D3471 /* VSRListViewController.m */; };
+		2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */; };
+		2FD2FDB619737733008D3471 /* VSRListVCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */; };
 		2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEAD6F91961015400BC19F6 /* CoreData.framework */; };
 		A13F3A4572594A43A884629F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB245FAC40640CA8B2D68BF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -62,7 +64,10 @@
 		2F85A82D1947F35200664182 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2F85A8351947F35200664182 /* VisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VisorTests-Info.plist"; sourceTree = "<group>"; };
 		2F85A8371947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2F85A8391947F35200664182 /* VisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisorTests.m; sourceTree = "<group>"; };
+		2FD2FDAF19736548008D3471 /* VSRListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRListViewController.h; sourceTree = "<group>"; };
+		2FD2FDB019736548008D3471 /* VSRListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListViewController.m; sourceTree = "<group>"; };
+		2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visor.xcdatamodel; sourceTree = "<group>"; };
+		2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListVCTestCase.m; sourceTree = "<group>"; };
 		2FEAD6F91961015400BC19F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BCB245FAC40640CA8B2D68BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +163,8 @@
 		2F85A8331947F35200664182 /* VisorTests */ = {
 			isa = PBXGroup;
 			children = (
-				2F85A8391947F35200664182 /* VisorTests.m */,
 				2F85A8341947F35200664182 /* Supporting Files */,
+				2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */,
 			);
 			path = VisorTests;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 		2FB1B1491949297E007DD029 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -190,6 +196,8 @@
 		2FB1B14B1949298A007DD029 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2FD2FDAF19736548008D3471 /* VSRListViewController.h */,
+				2FD2FDB019736548008D3471 /* VSRListViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -345,7 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
+				2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */,
 				2F85A8181947F35200664182 /* main.m in Sources */,
+				2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F85A83A1947F35200664182 /* VisorTests.m in Sources */,
+				2FD2FDB619737733008D3471 /* VSRListVCTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +589,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */,
+			);
+			currentVersion = 2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */;
+			path = Visor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F85A8001947F35200664182 /* Project object */;
 }
