@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRRottentTomatesClient.h"
+#import "VSRRottenTomatesClient.h"
 #import "VSRAppDelegate.h"
 
-@interface VSRRottentTomatesClient()
+@interface VSRRottenTomatesClient()
 
 @end
 
-@implementation VSRRottentTomatesClient
+@implementation VSRRottenTomatesClient
 
 + (instancetype)sharedClient{
-    static VSRRottentTomatesClient *client;
+    static VSRRottenTomatesClient *client;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        client = [[VSRRottentTomatesClient alloc] init];
+        client = [[VSRRottenTomatesClient alloc] init];
     });
     return client;
 }

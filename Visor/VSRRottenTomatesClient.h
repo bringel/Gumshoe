@@ -8,10 +8,10 @@
 
 #import "AFHTTPSessionManager.h"
 
-@interface VSRRottentTomatesClient : AFHTTPSessionManager
+@interface VSRRottenTomatesClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
 
-- (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *))successBlock failure:(void (^)(NSError *))failBlock;
+- (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *movieData))successBlock failure:(void (^)(NSError *error))failBlock;
 
 @end
