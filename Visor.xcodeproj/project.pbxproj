@@ -24,6 +24,8 @@
 		2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB019736548008D3471 /* VSRListViewController.m */; };
 		2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */; };
 		2FD2FDB619737733008D3471 /* VSRListVCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */; };
+		2FD2FDB91974C45D008D3471 /* VSRItemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */; };
+		2FD2FDC01974C84F008D3471 /* VSRRottentTomatesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDBF1974C84F008D3471 /* VSRRottentTomatesClient.m */; };
 		2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEAD6F91961015400BC19F6 /* CoreData.framework */; };
 		A13F3A4572594A43A884629F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB245FAC40640CA8B2D68BF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,10 @@
 		2FD2FDB019736548008D3471 /* VSRListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListViewController.m; sourceTree = "<group>"; };
 		2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visor.xcdatamodel; sourceTree = "<group>"; };
 		2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListVCTestCase.m; sourceTree = "<group>"; };
+		2FD2FDB71974C45D008D3471 /* VSRItemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRItemSearchViewController.h; sourceTree = "<group>"; };
+		2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRItemSearchViewController.m; sourceTree = "<group>"; };
+		2FD2FDBE1974C84F008D3471 /* VSRRottentTomatesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRRottentTomatesClient.h; sourceTree = "<group>"; };
+		2FD2FDBF1974C84F008D3471 /* VSRRottentTomatesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRRottentTomatesClient.m; sourceTree = "<group>"; };
 		2FEAD6F91961015400BC19F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A41FE15AA9F94A868C95BC41 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BCB245FAC40640CA8B2D68BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +141,7 @@
 		2F85A8111947F35200664182 /* Visor */ = {
 			isa = PBXGroup;
 			children = (
+				2FD2FDBA1974C62B008D3471 /* APIs */,
 				2FB1B14B1949298A007DD029 /* Controller */,
 				2FB1B14A19492985007DD029 /* View */,
 				2FB1B1491949297E007DD029 /* Model */,
@@ -198,8 +205,19 @@
 			children = (
 				2FD2FDAF19736548008D3471 /* VSRListViewController.h */,
 				2FD2FDB019736548008D3471 /* VSRListViewController.m */,
+				2FD2FDB71974C45D008D3471 /* VSRItemSearchViewController.h */,
+				2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		2FD2FDBA1974C62B008D3471 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				2FD2FDBE1974C84F008D3471 /* VSRRottentTomatesClient.h */,
+				2FD2FDBF1974C84F008D3471 /* VSRRottentTomatesClient.m */,
+			);
+			name = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,9 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
+				2FD2FDC01974C84F008D3471 /* VSRRottentTomatesClient.m in Sources */,
 				2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */,
 				2F85A8181947F35200664182 /* main.m in Sources */,
 				2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */,
+				2FD2FDB91974C45D008D3471 /* VSRItemSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

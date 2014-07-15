@@ -153,7 +153,7 @@
 }
 
 - (void)showAdd:(id)sender{
-    
+    [self performSegueWithIdentifier:@"showAddViewController" sender:self];
 }
  
 

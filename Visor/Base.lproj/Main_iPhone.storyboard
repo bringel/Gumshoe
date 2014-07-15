@@ -44,6 +44,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="nAf-Mo-pab"/>
+                    <connections>
+                        <segue destination="4Sk-Ym-w2h" kind="modal" identifier="showAddViewController" id="eRA-lK-jlX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsd-Nj-3m4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,6 +69,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="db7-lx-epl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2920" y="1909"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mGW-po-Msa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Sk-Ym-w2h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QyC-EJ-aJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C2K-SC-qU2" kind="relationship" relationship="rootViewController" id="ObD-sm-N0V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T42-01-1NS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3941" y="1673"/>
+        </scene>
+        <!--Item Search View Controller-->
+        <scene sceneID="8AA-Rb-UkK">
+            <objects>
+                <viewController id="C2K-SC-qU2" customClass="VSRItemSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h9k-Ne-rVv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oe5-oP-lgy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BsH-Mz-H4a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-dC-Pse">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="C2K-SC-qU2" id="rNz-wF-DHq"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OhR-dC-Pse" firstAttribute="top" secondItem="h9k-Ne-rVv" secondAttribute="bottom" id="Mcb-Oc-rmu"/>
+                            <constraint firstItem="OhR-dC-Pse" firstAttribute="leading" secondItem="BsH-Mz-H4a" secondAttribute="leading" id="hGG-1h-lgE"/>
+                            <constraint firstAttribute="trailing" secondItem="OhR-dC-Pse" secondAttribute="trailing" id="xag-tf-YYd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fGT-55-F3W"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="4e1-lC-JfA" id="Pm7-KJ-bQn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-k2-Asw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="4e1-lC-JfA">
+                    <connections>
+                        <outlet property="delegate" destination="C2K-SC-qU2" id="tUI-xU-7qI"/>
+                        <outlet property="searchBar" destination="OhR-dC-Pse" id="Kfo-X0-QNl"/>
+                        <outlet property="searchContentsController" destination="C2K-SC-qU2" id="eyi-Dh-Doc"/>
+                        <outlet property="searchResultsDataSource" destination="C2K-SC-qU2" id="k5W-pH-YI3"/>
+                        <outlet property="searchResultsDelegate" destination="C2K-SC-qU2" id="V6f-lR-hCH"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="4405" y="1673"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

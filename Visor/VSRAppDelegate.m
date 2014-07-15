@@ -46,4 +46,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (NSDictionary *)apiInfo{
+    if(_apiInfo == nil){
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"apikeys" ofType:@"plist"];
+        _apiInfo = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    }
+    return _apiInfo;
+}
+
+
 @end
