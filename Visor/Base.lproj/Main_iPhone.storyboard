@@ -119,6 +119,7 @@
                     <navigationItem key="navigationItem" id="fGT-55-F3W"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="4e1-lC-JfA" id="Pm7-KJ-bQn"/>
+                        <segue destination="JDf-In-zyZ" kind="push" identifier="showItemDetails" id="cha-kv-dd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-k2-Asw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,6 +134,25 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="4405" y="1673"/>
+        </scene>
+        <!--Item Detail View Controller-->
+        <scene sceneID="lH4-fe-9PD">
+            <objects>
+                <viewController id="JDf-In-zyZ" customClass="VSRItemDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3xq-r4-8xp"/>
+                        <viewControllerLayoutGuide type="bottom" id="ajs-VO-gdu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SsH-TW-MyC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TbP-Lk-8ba"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxx-Hk-PxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4880" y="1673"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

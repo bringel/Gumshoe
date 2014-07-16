@@ -8,6 +8,9 @@
 
 #import "VSRItemSearchViewController.h"
 #import "VSRRottenTomatesClient.h"
+#import "VSRItemDetailViewController.h"
+#import "VSRMovieTableViewCell.h"
+#import "AsyncImageView.h"
 
 @interface VSRItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -30,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"VSRMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
     self.searchDisplayController.searchResultsTableView.delegate = self;
     self.searchDisplayController.searchResultsTableView.dataSource = self;
 }
@@ -48,11 +51,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    VSRMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
     
     //do some setup here
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-mm-dd";
+    
     NSDictionary *movie = self.searchResults[indexPath.row];
-    cell.textLabel.text = movie[@"title"];
+    cell.titleLabel.text = movie[@"title"];
+    
+//    NSURL *imageUrl = [movie valueForKeyPath:@"posters.thumbnail"];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfiguration:@"background"]];
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:imageUrl];
+//    [dataTask resume];
+    cell.posterImageView.imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
+    NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.theater"]];
+                              NSDate *dvdRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.dvd"]];
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    //TODO: Set the locale information
+    cell.detailsLabel.text = [NSString stringWithFormat:@"Theaters - %@ | DVD - %@",[dateFormatter stringFromDate:theaterRelease],[dateFormatter stringFromDate:dvdRelease]];
     return cell;
 }
 
@@ -72,9 +89,13 @@
 
 #pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"showDetails" sender:self];
+}
 
-
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 65;
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -82,7 +103,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSDictionary *movieData = self.searchResults[self.searchDisplayController.searchResultsTableView.indexPathForSelectedRow.row];
+    VSRItemDetailViewController *itemDetailVC = segue.destinationViewController;
+    itemDetailVC.itemData = movieData;
+    
 }
-*/
 
 @end
