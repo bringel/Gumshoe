@@ -7,8 +7,9 @@
 //
 
 #import "VSRItemSearchViewController.h"
+#import "VSRRottenTomatesClient.h"
 
-@interface VSRItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource>
+@interface VSRItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *searchResults;
 
@@ -29,6 +30,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.searchDisplayController.searchResultsTableView.delegate = self;
+    self.searchDisplayController.searchResultsTableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,21 +44,36 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return self.searchResults.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     //do some setup here
+    NSDictionary *movie = self.searchResults[indexPath.row];
+    cell.textLabel.text = movie[@"title"];
     return cell;
 }
 
 #pragma mark - UISearchDisplayDelegate
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     
+    [[VSRRottenTomatesClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
+        self.searchResults = movieData;
+        [self.searchDisplayController.searchResultsTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Got an error %@", error);
+    }];
+    return NO;
 }
+
+#pragma mark - UITableViewDelegate
+
+
+
 /*
 #pragma mark - Navigation
 

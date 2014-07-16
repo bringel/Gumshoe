@@ -27,7 +27,7 @@
 - (instancetype)init{
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURL *baseUrl = [NSURL URLWithString:@"http://api.rottentomatoes.com/api/public/v1.0"];
+    NSURL *baseUrl = [NSURL URLWithString:@"http://api.rottentomatoes.com/api/public/v1.0/"];
     self = [super initWithBaseURL:baseUrl sessionConfiguration:configuration];
     if(self){
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -43,7 +43,7 @@
 
 - (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *movieData))successBlock failure:(void (^)(NSError *error))failBlock{
     
-    [self GET:@"/movies.json" parameters:@{ @"q" : title, @"apikey" : [self _apiKey]}
+    [self GET:@"movies.json" parameters:@{ @"q" : title, @"apikey" : [self _apiKey]}
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
           if(response.statusCode == 200){

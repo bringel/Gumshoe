@@ -6,4 +6,7 @@ pod "MDMCoreData", "~> 1.0"
 pod "AFNetworkActivityLogger", "~> 2.0"
 pod "Mantle", "~> 1.5"
 
-pod "OCMock", "~> 3.0"
+target :VisorTests do
+  pod "OCMock", "~> 3.0"
+  pod 'OHHTTPStubs', '~> 3.1'
+end

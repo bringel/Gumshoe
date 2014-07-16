@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "VSRListViewController.h"
+#import "AFHTTPSessionManager.h"
 
 @interface VSRListVCTestCase : XCTestCase
 
