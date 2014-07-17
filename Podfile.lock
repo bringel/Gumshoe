@@ -46,7 +46,7 @@ PODS:
     - MDMCoreData/MDMCoreDataCore
   - OCMock (3.0.2)
   - OHHTTPStubs (3.1.2)
-  - Parse (1.2.19):
+  - Parse (1.2.20):
     - Facebook-iOS-SDK (~> 3.11)
 
 DEPENDENCIES:
@@ -69,6 +69,6 @@ SPEC CHECKSUMS:
   MDMCoreData: 82139593489552487049e904998c7f5cc1c57c28
   OCMock: b9836ab89d8d5e66cbe6333f93857037c310ee62
   OHHTTPStubs: c1c2007839687eaf9b80f061ce84440515080ebb
-  Parse: ffebaecaddd32cb52671010f81567c298ff93d04
+  Parse: 28c0dc54f30201a369d29a2f76c09fa43b2add16
 
 COCOAPODS: 0.33.1

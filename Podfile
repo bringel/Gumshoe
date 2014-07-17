@@ -7,7 +7,7 @@ pod "AFNetworkActivityLogger", "~> 2.0"
 pod "Mantle", "~> 1.5"
 pod "AsyncImageView"
 
-target :VisorTests do
+target :GumshoeTests do
   pod "OCMock", "~> 3.0"
   pod 'OHHTTPStubs', '~> 3.1'
 end
