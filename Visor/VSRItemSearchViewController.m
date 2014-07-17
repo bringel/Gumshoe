@@ -65,6 +65,7 @@
 //    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:imageUrl];
 //    [dataTask resume];
     cell.posterImageView.imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
+
     NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.theater"]];
                               NSDate *dvdRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.dvd"]];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;

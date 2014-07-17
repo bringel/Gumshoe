@@ -11,6 +11,7 @@
 		2F3AA8FF1975FC8F009691DC /* VSRItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* VSRItemDetailViewController.m */; };
 		2F3AA9031975FCF7009691DC /* VSRMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA9011975FCF7009691DC /* VSRMovieTableViewCell.m */; };
 		2F3AA9041975FCF7009691DC /* VSRMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA9021975FCF7009691DC /* VSRMovieTableViewCell.xib */; };
+		2F3AA90619761B37009691DC /* searchresult.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA90519761B37009691DC /* searchresult.json */; };
 		2F85A80C1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A80E1947F35200664182 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80D1947F35200664182 /* CoreGraphics.framework */; };
 		2F85A8101947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
@@ -61,6 +62,7 @@
 		2F3AA9001975FCF7009691DC /* VSRMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRMovieTableViewCell.h; sourceTree = "<group>"; };
 		2F3AA9011975FCF7009691DC /* VSRMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRMovieTableViewCell.m; sourceTree = "<group>"; };
 		2F3AA9021975FCF7009691DC /* VSRMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRMovieTableViewCell.xib; sourceTree = "<group>"; };
+		2F3AA90519761B37009691DC /* searchresult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchresult.json; sourceTree = "<group>"; };
 		2F85A8081947F35200664182 /* Visor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F85A80B1947F35200664182 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F85A80D1947F35200664182 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +188,7 @@
 		2F85A8331947F35200664182 /* VisorTests */ = {
 			isa = PBXGroup;
 			children = (
+				2F3AA90519761B37009691DC /* searchresult.json */,
 				2F85A8341947F35200664182 /* Supporting Files */,
 				2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */,
 				2FD2FDC11974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m */,
@@ -338,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3AA90619761B37009691DC /* searchresult.json in Resources */,
 				2F85A8381947F35200664182 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "VSRRottenTomatesClient.h"
+#import "OHHTTPStubs.h"
+#import "OHHTTPStubsResponse+JSON.h"
 
 @interface VSRRottenTomatoesClientTestCase : XCTestCase
 
@@ -23,75 +25,30 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.rtClient = [VSRRottenTomatesClient sharedClient];
-    self.apiResponse = @{
-        @"total": @(1),
-        @"movies": @[@{
-            @"id": @"770672122",
-            @"title": @"Toy Story 3",
-            @"year": @(2010),
-            @"mpaa_rating": @"G",
-            @"runtime": @(103),
-            @"critics_consensus": @"",
-            @"release_dates": @{
-                @"theater": @"2010-06-18",
-                @"dvd": @"2010-11-02"
-            },
-            @"ratings": @{
-                @"critics_rating": @"Certified Fresh",
-                @"critics_score": @(99),
-                @"audience_rating": @"Upright",
-                @"audience_score": @(89)
-            },
-            @"synopsis": @"\"Toy Story 3\" welcomes Woody, Buzz and the whole gang back to the big screen as Andy prepares to depart for college and his loyal toys find themselves in... daycare! These untamed tots with their sticky little fingers do not play nice, so it's all for one and one for all as plans for the great escape get underway. A few new faces-some plastic, some plush-join the adventure, including iconic swinging bachelor and Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear.",
-            @"posters": @{
-                @"thumbnail": @"http://content6.flixster.com/movie/11/13/43/11134356_tmb.jpg",
-                @"profile": @"http://content6.flixster.com/movie/11/13/43/11134356_tmb.jpg",
-                @"detailed": @"http://content6.flixster.com/movie/11/13/43/11134356_tmb.jpg",
-                @"original": @"http://content6.flixster.com/movie/11/13/43/11134356_tmb.jpg"
-            },
-            @"abridged_cast": @[@{
-                @"name": @"Tom Hanks",
-                @"id": @"162655641",
-                @"characters": @[@"Woody"]
-            }, @{
-                @"name": @"Tim Allen",
-                @"id": @"162655909",
-                @"characters": @[@"Buzz Lightyear"]
-            }, @{
-                @"name": @"Joan Cusack",
-                @"id": @"162655020",
-                @"characters": @[@"Jessie the Cowgirl"]
-            }, @{
-                @"name": @"Ned Beatty",
-                @"id": @"162672460",
-                @"characters": @[@"Lots-o'-Huggin' Bear", @"Lotso"]
-            }, @{
-                @"name": @"Don Rickles",
-                @"id": @"341817905",
-                @"characters": @[@"Mr. Potato Head"]
-            }],
-            @"alternate_ids": @{
-                @"imdb": @"0435761"
-            },
-            @"links": @{
-                @"self": @"http://api.rottentomatoes.com/api/public/v1.0/movies/770672122.json",
-                @"alternate": @"http://www.rottentomatoes.com/m/toy_story_3/",
-                @"cast": @"http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/cast.json",
-                @"reviews": @"http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/reviews.json",
-                @"similar": @"http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/similar.json"
-            }
-        }],
-        @"links": @{
-            @"self": @"http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=Toy+Story+3&page_limit=10&page=1"
-        },
-        @"link_template": @"http://api.rottentomatoes.com/api/public/v1.0/movies.json?q={search-term}&page_limit={results-per-page}&page={page-number}"
-        };
+//    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    NSString *jsonPath = [documents stringByAppendingPathComponent:@"searchresults.json"];
+    NSURL *jsonPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"searchresult" withExtension:@"json"];
+    
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfURL:jsonPath];
+    self.apiResponse = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        NSString *urlString = request.URL.description;
+        if([urlString hasPrefix:@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=Toy+Story+3"]){
+            return YES;
+        }
+        return NO;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithJSONObject:self.apiResponse statusCode:200 headers:@{}];
+    }];
+    [OHHTTPStubs setEnabled:YES];
 }
 
 - (void)tearDown
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    [OHHTTPStubs removeAllStubs];
 }
 
 - (void)testSearch
