@@ -7,21 +7,21 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "VSRListViewController.h"
+#import "GUMListViewController.h"
 #import "AFHTTPSessionManager.h"
 
-@interface VSRListVCTestCase : XCTestCase
+@interface GUMListVCTestCase : XCTestCase
 
-@property (nonatomic, strong) VSRListViewController *listVC;
+@property (nonatomic, strong) GUMListViewController *listVC;
 @end
 
-@implementation VSRListVCTestCase
+@implementation GUMListVCTestCase
 
 - (void)setUp
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.listVC = [[VSRListViewController alloc] init];
+    self.listVC = [[GUMListViewController alloc] init];
 }
 
 - (void)tearDown

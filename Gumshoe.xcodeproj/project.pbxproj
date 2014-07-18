@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		0A6AFE32A3B64C02A0C9540B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC0E455DBD4A61A87C0B3F /* libPods.a */; };
 		2F29979D194E062000DB6174 /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F29979C194E062000DB6174 /* apikeys.plist */; };
-		2F3AA8FF1975FC8F009691DC /* VSRItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* VSRItemDetailViewController.m */; };
-		2F3AA9031975FCF7009691DC /* VSRMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA9011975FCF7009691DC /* VSRMovieTableViewCell.m */; };
-		2F3AA9041975FCF7009691DC /* VSRMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA9021975FCF7009691DC /* VSRMovieTableViewCell.xib */; };
+		2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */; };
+		2F3AA9031975FCF7009691DC /* GUMMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */; };
+		2F3AA9041975FCF7009691DC /* GUMMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA9021975FCF7009691DC /* GUMMovieTableViewCell.xib */; };
 		2F3AA90619761B37009691DC /* searchresult.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA90519761B37009691DC /* searchresult.json */; };
 		2F85A80C1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A80E1947F35200664182 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80D1947F35200664182 /* CoreGraphics.framework */; };
 		2F85A8101947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8161947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8141947F35200664182 /* InfoPlist.strings */; };
 		2F85A8181947F35200664182 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A8171947F35200664182 /* main.m */; };
-		2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A81B1947F35200664182 /* VSRAppDelegate.m */; };
+		2F85A81C1947F35200664182 /* GUMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A81B1947F35200664182 /* GUMAppDelegate.m */; };
 		2F85A81F1947F35200664182 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A81D1947F35200664182 /* Main_iPhone.storyboard */; };
 		2F85A8221947F35200664182 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8201947F35200664182 /* Main_iPad.storyboard */; };
 		2F85A8271947F35200664182 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8261947F35200664182 /* Images.xcassets */; };
@@ -26,12 +26,12 @@
 		2F85A82F1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A8301947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8381947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8361947F35200664182 /* InfoPlist.strings */; };
-		2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB019736548008D3471 /* VSRListViewController.m */; };
+		2FD2FDB119736548008D3471 /* GUMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB019736548008D3471 /* GUMListViewController.m */; };
 		2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */; };
-		2FD2FDB619737733008D3471 /* VSRListVCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */; };
-		2FD2FDB91974C45D008D3471 /* VSRItemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */; };
-		2FD2FDC01974C84F008D3471 /* VSRRottenTomatesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDBF1974C84F008D3471 /* VSRRottenTomatesClient.m */; };
-		2FD2FDC21974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDC11974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m */; };
+		2FD2FDB619737733008D3471 /* GUMListVCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB519737733008D3471 /* GUMListVCTestCase.m */; };
+		2FD2FDB91974C45D008D3471 /* GUMItemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB81974C45D008D3471 /* GUMItemSearchViewController.m */; };
+		2FD2FDC01974C84F008D3471 /* GUMRottenTomatesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDBF1974C84F008D3471 /* GUMRottenTomatesClient.m */; };
+		2FD2FDC21974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDC11974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m */; };
 		2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEAD6F91961015400BC19F6 /* CoreData.framework */; };
 		5425062D5DF748B49F4ECC84 /* libPods-GumshoeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B96E55D48C4D638ACE8769 /* libPods-GumshoeTests.a */; };
 /* End PBXBuildFile section */
@@ -58,11 +58,11 @@
 		16EC0E455DBD4A61A87C0B3F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		25879CADBECE4CB485CE3123 /* Pods-GumshoeTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GumshoeTests.xcconfig"; path = "Pods/Pods-GumshoeTests.xcconfig"; sourceTree = "<group>"; };
 		2F29979C194E062000DB6174 /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
-		2F3AA8FD1975FC8F009691DC /* VSRItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRItemDetailViewController.h; sourceTree = "<group>"; };
-		2F3AA8FE1975FC8F009691DC /* VSRItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRItemDetailViewController.m; sourceTree = "<group>"; };
-		2F3AA9001975FCF7009691DC /* VSRMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRMovieTableViewCell.h; sourceTree = "<group>"; };
-		2F3AA9011975FCF7009691DC /* VSRMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRMovieTableViewCell.m; sourceTree = "<group>"; };
-		2F3AA9021975FCF7009691DC /* VSRMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRMovieTableViewCell.xib; sourceTree = "<group>"; };
+		2F3AA8FD1975FC8F009691DC /* GUMItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMItemDetailViewController.h; sourceTree = "<group>"; };
+		2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMItemDetailViewController.m; sourceTree = "<group>"; };
+		2F3AA9001975FCF7009691DC /* GUMMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovieTableViewCell.h; sourceTree = "<group>"; };
+		2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovieTableViewCell.m; sourceTree = "<group>"; };
+		2F3AA9021975FCF7009691DC /* GUMMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUMMovieTableViewCell.xib; sourceTree = "<group>"; };
 		2F3AA90519761B37009691DC /* searchresult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchresult.json; sourceTree = "<group>"; };
 		2F85A8081947F35200664182 /* Gumshoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gumshoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F85A80B1947F35200664182 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,8 +72,8 @@
 		2F85A8151947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F85A8171947F35200664182 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F85A8191947F35200664182 /* Gumshoe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gumshoe-Prefix.pch"; sourceTree = "<group>"; };
-		2F85A81A1947F35200664182 /* VSRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSRAppDelegate.h; sourceTree = "<group>"; };
-		2F85A81B1947F35200664182 /* VSRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSRAppDelegate.m; sourceTree = "<group>"; };
+		2F85A81A1947F35200664182 /* GUMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUMAppDelegate.h; sourceTree = "<group>"; };
+		2F85A81B1947F35200664182 /* GUMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GUMAppDelegate.m; sourceTree = "<group>"; };
 		2F85A81E1947F35200664182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2F85A8211947F35200664182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2F85A8261947F35200664182 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -81,15 +81,15 @@
 		2F85A82D1947F35200664182 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2F85A8351947F35200664182 /* GumshoeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GumshoeTests-Info.plist"; sourceTree = "<group>"; };
 		2F85A8371947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2FD2FDAF19736548008D3471 /* VSRListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRListViewController.h; sourceTree = "<group>"; };
-		2FD2FDB019736548008D3471 /* VSRListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListViewController.m; sourceTree = "<group>"; };
-		2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Visor.xcdatamodel; sourceTree = "<group>"; };
-		2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRListVCTestCase.m; sourceTree = "<group>"; };
-		2FD2FDB71974C45D008D3471 /* VSRItemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRItemSearchViewController.h; sourceTree = "<group>"; };
-		2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRItemSearchViewController.m; sourceTree = "<group>"; };
-		2FD2FDBE1974C84F008D3471 /* VSRRottenTomatesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRRottenTomatesClient.h; sourceTree = "<group>"; };
-		2FD2FDBF1974C84F008D3471 /* VSRRottenTomatesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRRottenTomatesClient.m; sourceTree = "<group>"; };
-		2FD2FDC11974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRRottenTomatoesClientTestCase.m; sourceTree = "<group>"; };
+		2FD2FDAF19736548008D3471 /* GUMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMListViewController.h; sourceTree = "<group>"; };
+		2FD2FDB019736548008D3471 /* GUMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMListViewController.m; sourceTree = "<group>"; };
+		2FD2FDB31973750C008D3471 /* Gumshoe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gumshoe.xcdatamodel; sourceTree = "<group>"; };
+		2FD2FDB519737733008D3471 /* GUMListVCTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMListVCTestCase.m; sourceTree = "<group>"; };
+		2FD2FDB71974C45D008D3471 /* GUMItemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMItemSearchViewController.h; sourceTree = "<group>"; };
+		2FD2FDB81974C45D008D3471 /* GUMItemSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMItemSearchViewController.m; sourceTree = "<group>"; };
+		2FD2FDBE1974C84F008D3471 /* GUMRottenTomatesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMRottenTomatesClient.h; sourceTree = "<group>"; };
+		2FD2FDBF1974C84F008D3471 /* GUMRottenTomatesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMRottenTomatesClient.m; sourceTree = "<group>"; };
+		2FD2FDC11974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMRottenTomatoesClientTestCase.m; sourceTree = "<group>"; };
 		2FEAD6F91961015400BC19F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		61F65BA7CEB14DFCB6AFA7C6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,8 +163,8 @@
 				2FB1B14B1949298A007DD029 /* Controller */,
 				2FB1B14A19492985007DD029 /* View */,
 				2FB1B1491949297E007DD029 /* Model */,
-				2F85A81A1947F35200664182 /* VSRAppDelegate.h */,
-				2F85A81B1947F35200664182 /* VSRAppDelegate.m */,
+				2F85A81A1947F35200664182 /* GUMAppDelegate.h */,
+				2F85A81B1947F35200664182 /* GUMAppDelegate.m */,
 				2F85A81D1947F35200664182 /* Main_iPhone.storyboard */,
 				2F85A8201947F35200664182 /* Main_iPad.storyboard */,
 				2F85A8261947F35200664182 /* Images.xcassets */,
@@ -190,8 +190,8 @@
 			children = (
 				2F3AA90519761B37009691DC /* searchresult.json */,
 				2F85A8341947F35200664182 /* Supporting Files */,
-				2FD2FDB519737733008D3471 /* VSRListVCTestCase.m */,
-				2FD2FDC11974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m */,
+				2FD2FDB519737733008D3471 /* GUMListVCTestCase.m */,
+				2FD2FDC11974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m */,
 			);
 			path = GumshoeTests;
 			sourceTree = "<group>";
@@ -216,9 +216,9 @@
 		2FB1B14A19492985007DD029 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2F3AA9001975FCF7009691DC /* VSRMovieTableViewCell.h */,
-				2F3AA9011975FCF7009691DC /* VSRMovieTableViewCell.m */,
-				2F3AA9021975FCF7009691DC /* VSRMovieTableViewCell.xib */,
+				2F3AA9001975FCF7009691DC /* GUMMovieTableViewCell.h */,
+				2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */,
+				2F3AA9021975FCF7009691DC /* GUMMovieTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -226,12 +226,12 @@
 		2FB1B14B1949298A007DD029 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2FD2FDAF19736548008D3471 /* VSRListViewController.h */,
-				2FD2FDB019736548008D3471 /* VSRListViewController.m */,
-				2FD2FDB71974C45D008D3471 /* VSRItemSearchViewController.h */,
-				2FD2FDB81974C45D008D3471 /* VSRItemSearchViewController.m */,
-				2F3AA8FD1975FC8F009691DC /* VSRItemDetailViewController.h */,
-				2F3AA8FE1975FC8F009691DC /* VSRItemDetailViewController.m */,
+				2FD2FDAF19736548008D3471 /* GUMListViewController.h */,
+				2FD2FDB019736548008D3471 /* GUMListViewController.m */,
+				2FD2FDB71974C45D008D3471 /* GUMItemSearchViewController.h */,
+				2FD2FDB81974C45D008D3471 /* GUMItemSearchViewController.m */,
+				2F3AA8FD1975FC8F009691DC /* GUMItemDetailViewController.h */,
+				2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 		2FD2FDBA1974C62B008D3471 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				2FD2FDBE1974C84F008D3471 /* VSRRottenTomatesClient.h */,
-				2FD2FDBF1974C84F008D3471 /* VSRRottenTomatesClient.m */,
+				2FD2FDBE1974C84F008D3471 /* GUMRottenTomatesClient.h */,
+				2FD2FDBF1974C84F008D3471 /* GUMRottenTomatesClient.m */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 		2F85A8001947F35200664182 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = GSH;
+				CLASSPREFIX = GUM;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bradley Ringel";
 				TargetAttributes = {
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F3AA9041975FCF7009691DC /* VSRMovieTableViewCell.xib in Resources */,
+				2F3AA9041975FCF7009691DC /* GUMMovieTableViewCell.xib in Resources */,
 				2F85A8221947F35200664182 /* Main_iPad.storyboard in Resources */,
 				2F85A8271947F35200664182 /* Images.xcassets in Resources */,
 				2F29979D194E062000DB6174 /* apikeys.plist in Resources */,
@@ -429,14 +429,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F3AA9031975FCF7009691DC /* VSRMovieTableViewCell.m in Sources */,
-				2F85A81C1947F35200664182 /* VSRAppDelegate.m in Sources */,
-				2FD2FDC01974C84F008D3471 /* VSRRottenTomatesClient.m in Sources */,
+				2F3AA9031975FCF7009691DC /* GUMMovieTableViewCell.m in Sources */,
+				2F85A81C1947F35200664182 /* GUMAppDelegate.m in Sources */,
+				2FD2FDC01974C84F008D3471 /* GUMRottenTomatesClient.m in Sources */,
 				2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */,
 				2F85A8181947F35200664182 /* main.m in Sources */,
-				2F3AA8FF1975FC8F009691DC /* VSRItemDetailViewController.m in Sources */,
-				2FD2FDB119736548008D3471 /* VSRListViewController.m in Sources */,
-				2FD2FDB91974C45D008D3471 /* VSRItemSearchViewController.m in Sources */,
+				2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */,
+				2FD2FDB119736548008D3471 /* GUMListViewController.m in Sources */,
+				2FD2FDB91974C45D008D3471 /* GUMItemSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +444,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD2FDB619737733008D3471 /* VSRListVCTestCase.m in Sources */,
-				2FD2FDC21974CEC9008D3471 /* VSRRottenTomatoesClientTestCase.m in Sources */,
+				2FD2FDB619737733008D3471 /* GUMListVCTestCase.m in Sources */,
+				2FD2FDC21974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,9 +678,9 @@
 		2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */,
+				2FD2FDB31973750C008D3471 /* Gumshoe.xcdatamodel */,
 			);
-			currentVersion = 2FD2FDB31973750C008D3471 /* Visor.xcdatamodel */;
+			currentVersion = 2FD2FDB31973750C008D3471 /* Gumshoe.xcdatamodel */;
 			path = Visor.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "VSRAppDelegate.h"
+#import "GUMAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VSRAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([GUMAppDelegate class]));
     }
 }

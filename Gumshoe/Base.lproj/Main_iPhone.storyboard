@@ -7,7 +7,7 @@
         <!--List View Controller - Title-->
         <scene sceneID="Ei2-Ib-CQF">
             <objects>
-                <tableViewController id="l5U-N5-i2X" customClass="VSRListViewController" sceneMemberID="viewController">
+                <tableViewController id="l5U-N5-i2X" customClass="GUMListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4Iz-AH-pg0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
         <!--Item Search View Controller-->
         <scene sceneID="8AA-Rb-UkK">
             <objects>
-                <viewController id="C2K-SC-qU2" customClass="VSRItemSearchViewController" sceneMemberID="viewController">
+                <viewController id="C2K-SC-qU2" customClass="GUMItemSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h9k-Ne-rVv"/>
                         <viewControllerLayoutGuide type="bottom" id="Oe5-oP-lgy"/>
@@ -138,7 +138,7 @@
         <!--Item Detail View Controller-->
         <scene sceneID="lH4-fe-9PD">
             <objects>
-                <viewController id="JDf-In-zyZ" customClass="VSRItemDetailViewController" sceneMemberID="viewController">
+                <viewController id="JDf-In-zyZ" customClass="GUMItemDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3xq-r4-8xp"/>
                         <viewControllerLayoutGuide type="bottom" id="ajs-VO-gdu"/>

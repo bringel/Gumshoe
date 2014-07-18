@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRRottenTomatesClient.h"
-#import "VSRAppDelegate.h"
+#import "GUMRottenTomatesClient.h"
+#import "GUMAppDelegate.h"
 
-@interface VSRRottenTomatesClient()
+@interface GUMRottenTomatesClient()
 
 @end
 
-@implementation VSRRottenTomatesClient
+@implementation GUMRottenTomatesClient
 
 + (instancetype)sharedClient{
-    static VSRRottenTomatesClient *client;
+    static GUMRottenTomatesClient *client;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        client = [[VSRRottenTomatesClient alloc] init];
+        client = [[GUMRottenTomatesClient alloc] init];
     });
     return client;
 }
@@ -37,7 +37,7 @@
 }
 
 - (NSString  *)_apiKey{
-    VSRAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    GUMAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     return [[appDelegate apiInfo] objectForKey:@"rottentomatoes_api_key"];
 }
 

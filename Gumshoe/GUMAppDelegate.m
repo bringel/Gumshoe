@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRAppDelegate.h"
+#import "GUMAppDelegate.h"
 #import "AFNetworkActivityLogger.h"
 
-@implementation VSRAppDelegate
+@implementation GUMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

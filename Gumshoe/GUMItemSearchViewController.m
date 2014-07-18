@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRItemSearchViewController.h"
-#import "VSRRottenTomatesClient.h"
-#import "VSRItemDetailViewController.h"
-#import "VSRMovieTableViewCell.h"
+#import "GUMItemSearchViewController.h"
+#import "GUMRottenTomatesClient.h"
+#import "GUMItemDetailViewController.h"
+#import "GUMMovieTableViewCell.h"
 #import "AsyncImageView.h"
 
-@interface VSRItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GUMItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *searchResults;
 
 @end
 
-@implementation VSRItemSearchViewController
+@implementation GUMItemSearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +51,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    VSRMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
+    GUMMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell" forIndexPath:indexPath];
     
     //do some setup here
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -78,7 +78,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     
-    [[VSRRottenTomatesClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
+    [[GUMRottenTomatesClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
         self.searchResults = movieData;
         [self.searchDisplayController.searchResultsTableView reloadData];
         
@@ -105,7 +105,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSDictionary *movieData = self.searchResults[self.searchDisplayController.searchResultsTableView.indexPathForSelectedRow.row];
-    VSRItemDetailViewController *itemDetailVC = segue.destinationViewController;
+    GUMItemDetailViewController *itemDetailVC = segue.destinationViewController;
     itemDetailVC.itemData = movieData;
     
 }

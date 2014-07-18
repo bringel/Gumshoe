@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRMovieTableViewCell.h"
+#import "GUMMovieTableViewCell.h"
 
-@implementation VSRMovieTableViewCell
+@implementation GUMMovieTableViewCell
 
 - (void)awakeFromNib
 {

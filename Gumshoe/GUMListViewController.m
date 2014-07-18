@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRListViewController.h"
+#import "GUMListViewController.h"
 #import "MDMCoreData.h"
 
-@interface VSRListViewController () <NSFetchedResultsControllerDelegate>
+@interface GUMListViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
-@implementation VSRListViewController
+@implementation GUMListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,7 +50,7 @@
 
 - (NSFetchedResultsController *)fetchedResultsController{
     if(_fetchedResultsController == nil){
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"VSRMovie"];
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"GUMMovie"];
         NSSortDescriptor *sortDiscriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
         fetchRequest.sortDescriptors = @[sortDiscriptor];
         _fetchedResultsController = [[NSFetchedResultsController alloc]

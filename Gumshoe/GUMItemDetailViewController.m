@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "VSRItemDetailViewController.h"
+#import "GUMItemDetailViewController.h"
 
-@interface VSRItemDetailViewController ()
+@interface GUMItemDetailViewController ()
 
 @end
 
-@implementation VSRItemDetailViewController
+@implementation GUMItemDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VSRItemSearchViewController : UIViewController 
+@interface GUMItemSearchViewController : UIViewController 
 
 
 @end

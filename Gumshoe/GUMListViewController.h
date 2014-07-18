@@ -10,7 +10,7 @@
 
 @class MDMPersistenceController;
 
-@interface VSRListViewController : UITableViewController
+@interface GUMListViewController : UITableViewController
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) MDMPersistenceController *persitenceController;

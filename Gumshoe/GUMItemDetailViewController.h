@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VSRItemDetailViewController : UIViewController
+@interface GUMItemDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSDictionary *itemData;
 @end

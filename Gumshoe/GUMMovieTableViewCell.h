@@ -10,7 +10,7 @@
 
 @class AsyncImageView;
 
-@interface VSRMovieTableViewCell : UITableViewCell
+@interface GUMMovieTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
