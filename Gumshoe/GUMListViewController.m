@@ -47,49 +47,51 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (NSFetchedResultsController *)fetchedResultsController{
-    if(_fetchedResultsController == nil){
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"GUMMovie"];
-        NSSortDescriptor *sortDiscriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        fetchRequest.sortDescriptors = @[sortDiscriptor];
-        _fetchedResultsController = [[NSFetchedResultsController alloc]
-                                     initWithFetchRequest:fetchRequest
-                                     managedObjectContext:self.persitenceController.managedObjectContext
-                                     sectionNameKeyPath:nil
-                                     cacheName:nil];
-        _fetchedResultsController.delegate = self;
-        
-    }
-    
-    return _fetchedResultsController;
-}
-
-- (MDMPersistenceController *)persitenceController{
-    if(_persitenceController == nil){
-        NSURL *storeURL = [NSURL fileURLWithPath:[[self _documentsDirectory] stringByAppendingPathComponent:@"visor.sqlite"]];
-        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Visor" withExtension:@"momd"];
-        _persitenceController = [[MDMPersistenceController alloc] initWithStoreURL:storeURL modelURL:modelURL];
-    }
-    return _persitenceController;
-}
-
-- (NSString *)_documentsDirectory {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-}
-
+//
+//- (NSFetchedResultsController *)fetchedResultsController{
+//    if(_fetchedResultsController == nil){
+//        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"GUMMovie"];
+//        NSSortDescriptor *sortDiscriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+//        fetchRequest.sortDescriptors = @[sortDiscriptor];
+//        _fetchedResultsController = [[NSFetchedResultsController alloc]
+//                                     initWithFetchRequest:fetchRequest
+//                                     managedObjectContext:self.persitenceController.managedObjectContext
+//                                     sectionNameKeyPath:nil
+//                                     cacheName:nil];
+//        _fetchedResultsController.delegate = self;
+//        
+//    }
+//    
+//    return _fetchedResultsController;
+//}
+//
+//- (MDMPersistenceController *)persitenceController{
+//    if(_persitenceController == nil){
+//        NSURL *storeURL = [NSURL fileURLWithPath:[[self _documentsDirectory] stringByAppendingPathComponent:@"visor.sqlite"]];
+//        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Visor" withExtension:@"momd"];
+//        _persitenceController = [[MDMPersistenceController alloc] initWithStoreURL:storeURL modelURL:modelURL];
+//    }
+//    return _persitenceController;
+//}
+//
+//- (NSString *)_documentsDirectory {
+//    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//}
+//
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.fetchedResultsController.sections.count;
+//    return self.fetchedResultsController.sections.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
-    return [sectionInfo numberOfObjects];
+//    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+//    return [sectionInfo numberOfObjects];
+    return 0;
 }
 
 

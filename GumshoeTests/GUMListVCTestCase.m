@@ -29,15 +29,15 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
-- (void)testPersistenceController{
-    XCTAssertNotNil(self.listVC.persitenceController, @"Persistence controller is nil!");
-    
-}
-
-- (void)testFetchedResultsController{
-    
-    XCTAssertNotNil(self.listVC.fetchedResultsController, @"Fetched Results Controller is nil!");
-}
+//
+//- (void)testPersistenceController{
+//    XCTAssertNotNil(self.listVC.persitenceController, @"Persistence controller is nil!");
+//    
+//}
+//
+//- (void)testFetchedResultsController{
+//    
+//    XCTAssertNotNil(self.listVC.fetchedResultsController, @"Fetched Results Controller is nil!");
+//}
 
 @end
