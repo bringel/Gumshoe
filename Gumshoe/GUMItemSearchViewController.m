@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"VSRMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"GUMMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
     self.searchDisplayController.searchResultsTableView.delegate = self;
     self.searchDisplayController.searchResultsTableView.dataSource = self;
 }
@@ -91,7 +91,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"showDetails" sender:self];
+    [self performSegueWithIdentifier:@"showItemDetails" sender:self];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

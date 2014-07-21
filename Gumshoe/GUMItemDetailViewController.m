@@ -7,6 +7,7 @@
 //
 
 #import "GUMItemDetailViewController.h"
+#import "AsyncImageView.h"
 
 @interface GUMItemDetailViewController ()
 
@@ -27,6 +28,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.posterImageView.imageURL = [NSURL URLWithString: [self.itemData valueForKeyPath:@"posters.detailed"]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
 }
 
 - (void)didReceiveMemoryWarning
