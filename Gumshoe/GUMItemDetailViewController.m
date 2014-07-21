@@ -8,6 +8,8 @@
 
 #import "GUMItemDetailViewController.h"
 #import "AsyncImageView.h"
+#import "GUMMovie.h"
+#import "MTLJSONAdapter.h"
 
 @interface GUMItemDetailViewController ()
 
@@ -36,6 +38,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addItem:(id)sender{
+    NSError *error;
+    GUMMovie *newMovie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:self.itemData error:&error];
 }
 
 /*
