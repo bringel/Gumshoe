@@ -29,6 +29,7 @@
 		2FCC1B40197CA92100E12621 /* GUMMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B3F197CA92100E12621 /* GUMMovie.m */; };
 		2FCC1B43197CB05F00E12621 /* GUMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B42197CB05F00E12621 /* GUMUser.m */; };
 		2FCC1B46197CB08400E12621 /* GUMMovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B45197CB08400E12621 /* GUMMovieList.m */; };
+		2FCC1B491981EF8F00E12621 /* GUMMovieDatabaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B481981EF8F00E12621 /* GUMMovieDatabaseClient.m */; };
 		2FD2FDB119736548008D3471 /* GUMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB019736548008D3471 /* GUMListViewController.m */; };
 		2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB21973750C008D3471 /* Visor.xcdatamodeld */; };
 		2FD2FDB619737733008D3471 /* GUMListVCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDB519737733008D3471 /* GUMListVCTestCase.m */; };
@@ -90,6 +91,8 @@
 		2FCC1B42197CB05F00E12621 /* GUMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMUser.m; sourceTree = "<group>"; };
 		2FCC1B44197CB08300E12621 /* GUMMovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovieList.h; sourceTree = "<group>"; };
 		2FCC1B45197CB08400E12621 /* GUMMovieList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovieList.m; sourceTree = "<group>"; };
+		2FCC1B471981EF8F00E12621 /* GUMMovieDatabaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovieDatabaseClient.h; sourceTree = "<group>"; };
+		2FCC1B481981EF8F00E12621 /* GUMMovieDatabaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovieDatabaseClient.m; sourceTree = "<group>"; };
 		2FD2FDAF19736548008D3471 /* GUMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMListViewController.h; sourceTree = "<group>"; };
 		2FD2FDB019736548008D3471 /* GUMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMListViewController.m; sourceTree = "<group>"; };
 		2FD2FDB31973750C008D3471 /* Gumshoe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gumshoe.xcdatamodel; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				2FD2FDBE1974C84F008D3471 /* GUMRottenTomatesClient.h */,
 				2FD2FDBF1974C84F008D3471 /* GUMRottenTomatesClient.m */,
+				2FCC1B471981EF8F00E12621 /* GUMMovieDatabaseClient.h */,
+				2FCC1B481981EF8F00E12621 /* GUMMovieDatabaseClient.m */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				2F85A8181947F35200664182 /* main.m in Sources */,
 				2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */,
 				2FD2FDB119736548008D3471 /* GUMListViewController.m in Sources */,
+				2FCC1B491981EF8F00E12621 /* GUMMovieDatabaseClient.m in Sources */,
 				2FCC1B40197CA92100E12621 /* GUMMovie.m in Sources */,
 				2FCC1B43197CB05F00E12621 /* GUMUser.m in Sources */,
 				2FD2FDB91974C45D008D3471 /* GUMItemSearchViewController.m in Sources */,

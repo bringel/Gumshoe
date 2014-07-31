@@ -8,6 +8,7 @@
 
 #import "GUMItemSearchViewController.h"
 #import "GUMRottenTomatesClient.h"
+#import "GUMMovieDatabaseClient.h"
 #import "GUMItemDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
 #import "AsyncImageView.h"
@@ -55,7 +56,7 @@
     
     //do some setup here
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-mm-dd";
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
     
     NSDictionary *movie = self.searchResults[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
@@ -64,9 +65,15 @@
 //    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfiguration:@"background"]];
 //    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:imageUrl];
 //    [dataTask resume];
-    cell.posterImageView.imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
+    //cell.posterImageView.imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
+    if([movie valueForKey:@"poster_path"] != [NSNull null]){
+        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
+        cell.posterImageView.image = nil;
+        NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[movie valueForKey:@"poster_path"]];
+        cell.posterImageView.imageURL = posterURL;
+    }
 
-    NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.theater"]];
+    NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKey:@"release_date"]];
                               NSDate *dvdRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.dvd"]];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     //TODO: Set the locale information
@@ -78,7 +85,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     
-    [[GUMRottenTomatesClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
+    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
         self.searchResults = movieData;
         [self.searchDisplayController.searchResultsTableView reloadData];
         
