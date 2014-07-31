@@ -7,7 +7,7 @@
 //
 
 #import "GUMListViewController.h"
-#import "MDMCoreData.h"
+//#import "MDMCoreData.h"
 
 @interface GUMListViewController () <NSFetchedResultsControllerDelegate>
 
