@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GUMItemSearchViewController : UIViewController 
+@interface GUMItemSearchViewController : UITableViewController
 
+@property (strong, nonatomic) UISearchController *searchController;
 
 @end

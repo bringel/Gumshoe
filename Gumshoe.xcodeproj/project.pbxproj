@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A6AFE32A3B64C02A0C9540B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC0E455DBD4A61A87C0B3F /* libPods.a */; };
 		2F29979D194E062000DB6174 /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F29979C194E062000DB6174 /* apikeys.plist */; };
 		2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */; };
 		2F3AA9031975FCF7009691DC /* GUMMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */; };
@@ -19,13 +18,12 @@
 		2F85A8161947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8141947F35200664182 /* InfoPlist.strings */; };
 		2F85A8181947F35200664182 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A8171947F35200664182 /* main.m */; };
 		2F85A81C1947F35200664182 /* GUMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F85A81B1947F35200664182 /* GUMAppDelegate.m */; };
-		2F85A81F1947F35200664182 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A81D1947F35200664182 /* Main_iPhone.storyboard */; };
-		2F85A8221947F35200664182 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8201947F35200664182 /* Main_iPad.storyboard */; };
 		2F85A8271947F35200664182 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8261947F35200664182 /* Images.xcassets */; };
 		2F85A82E1947F35200664182 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A82D1947F35200664182 /* XCTest.framework */; };
 		2F85A82F1947F35200664182 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80B1947F35200664182 /* Foundation.framework */; };
 		2F85A8301947F35200664182 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F85A80F1947F35200664182 /* UIKit.framework */; };
 		2F85A8381947F35200664182 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F85A8361947F35200664182 /* InfoPlist.strings */; };
+		2FA3726819C481130065D96D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA3726619C481130065D96D /* Main.storyboard */; };
 		2FCC1B40197CA92100E12621 /* GUMMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B3F197CA92100E12621 /* GUMMovie.m */; };
 		2FCC1B43197CB05F00E12621 /* GUMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B42197CB05F00E12621 /* GUMUser.m */; };
 		2FCC1B46197CB08400E12621 /* GUMMovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1B45197CB08400E12621 /* GUMMovieList.m */; };
@@ -38,6 +36,7 @@
 		2FD2FDC21974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2FDC11974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m */; };
 		2FEAD6FA1961015400BC19F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEAD6F91961015400BC19F6 /* CoreData.framework */; };
 		5425062D5DF748B49F4ECC84 /* libPods-GumshoeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B96E55D48C4D638ACE8769 /* libPods-GumshoeTests.a */; };
+		D0D524BEA6B945F8B048837B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC0E455DBD4A61A87C0B3F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,7 @@
 /* Begin PBXFileReference section */
 		14B96E55D48C4D638ACE8769 /* libPods-GumshoeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GumshoeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EC0E455DBD4A61A87C0B3F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		25879CADBECE4CB485CE3123 /* Pods-GumshoeTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GumshoeTests.xcconfig"; path = "Pods/Pods-GumshoeTests.xcconfig"; sourceTree = "<group>"; };
+		18EF1BF49F3F4D9D9A9BD51E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		2F29979C194E062000DB6174 /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 		2F3AA8FD1975FC8F009691DC /* GUMItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMItemDetailViewController.h; sourceTree = "<group>"; };
 		2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMItemDetailViewController.m; sourceTree = "<group>"; };
@@ -78,13 +77,12 @@
 		2F85A8191947F35200664182 /* Gumshoe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gumshoe-Prefix.pch"; sourceTree = "<group>"; };
 		2F85A81A1947F35200664182 /* GUMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUMAppDelegate.h; sourceTree = "<group>"; };
 		2F85A81B1947F35200664182 /* GUMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GUMAppDelegate.m; sourceTree = "<group>"; };
-		2F85A81E1947F35200664182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		2F85A8211947F35200664182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2F85A8261947F35200664182 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F85A82C1947F35200664182 /* GumshoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GumshoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F85A82D1947F35200664182 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2F85A8351947F35200664182 /* GumshoeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GumshoeTests-Info.plist"; sourceTree = "<group>"; };
 		2F85A8371947F35200664182 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2FA3726719C481130065D96D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Gumshoe/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FCC1B3E197CA92100E12621 /* GUMMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovie.h; sourceTree = "<group>"; };
 		2FCC1B3F197CA92100E12621 /* GUMMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovie.m; sourceTree = "<group>"; };
 		2FCC1B41197CB05F00E12621 /* GUMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMUser.h; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		2FD2FDBF1974C84F008D3471 /* GUMRottenTomatesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMRottenTomatesClient.m; sourceTree = "<group>"; };
 		2FD2FDC11974CEC9008D3471 /* GUMRottenTomatoesClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMRottenTomatoesClientTestCase.m; sourceTree = "<group>"; };
 		2FEAD6F91961015400BC19F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		61F65BA7CEB14DFCB6AFA7C6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +112,7 @@
 				2F85A80E1947F35200664182 /* CoreGraphics.framework in Frameworks */,
 				2F85A8101947F35200664182 /* UIKit.framework in Frameworks */,
 				2F85A80C1947F35200664182 /* Foundation.framework in Frameworks */,
-				0A6AFE32A3B64C02A0C9540B /* libPods.a in Frameworks */,
+				D0D524BEA6B945F8B048837B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +137,7 @@
 				2F85A8331947F35200664182 /* GumshoeTests */,
 				2F85A80A1947F35200664182 /* Frameworks */,
 				2F85A8091947F35200664182 /* Products */,
-				61F65BA7CEB14DFCB6AFA7C6 /* Pods.xcconfig */,
-				25879CADBECE4CB485CE3123 /* Pods-GumshoeTests.xcconfig */,
+				18EF1BF49F3F4D9D9A9BD51E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,9 +173,8 @@
 				2FB1B1491949297E007DD029 /* Model */,
 				2F85A81A1947F35200664182 /* GUMAppDelegate.h */,
 				2F85A81B1947F35200664182 /* GUMAppDelegate.m */,
-				2F85A81D1947F35200664182 /* Main_iPhone.storyboard */,
-				2F85A8201947F35200664182 /* Main_iPad.storyboard */,
 				2F85A8261947F35200664182 /* Images.xcassets */,
+				2FA3726619C481130065D96D /* Main.storyboard */,
 				2F85A8121947F35200664182 /* Supporting Files */,
 			);
 			path = Gumshoe;
@@ -272,12 +267,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F85A83D1947F35200664182 /* Build configuration list for PBXNativeTarget "Gumshoe" */;
 			buildPhases = (
-				37B9E004D309492B87F13E22 /* Check Pods Manifest.lock */,
+				650B765ABE4C44B0BE1C77A9 /* Check Pods Manifest.lock */,
 				2F85A8041947F35200664182 /* Sources */,
 				2F85A8051947F35200664182 /* Frameworks */,
 				2F85A8061947F35200664182 /* Resources */,
 				2FEAD6F2195A6DC400BC19F6 /* ShellScript */,
-				0D49E36D8FBA46A4ABDEE06D /* Copy Pods Resources */,
+				C21633B4B81A43629366CC3F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,10 +344,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3AA9041975FCF7009691DC /* GUMMovieTableViewCell.xib in Resources */,
-				2F85A8221947F35200664182 /* Main_iPad.storyboard in Resources */,
+				2FA3726819C481130065D96D /* Main.storyboard in Resources */,
 				2F85A8271947F35200664182 /* Images.xcassets in Resources */,
 				2F29979D194E062000DB6174 /* apikeys.plist in Resources */,
-				2F85A81F1947F35200664182 /* Main_iPhone.storyboard in Resources */,
 				2F85A8161947F35200664182 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,21 +363,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D49E36D8FBA46A4ABDEE06D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2FEAD6F2195A6DC400BC19F6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,21 +375,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
-		};
-		37B9E004D309492B87F13E22 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
 		44F1EDDD302641EBB5272C3A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -425,6 +389,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		650B765ABE4C44B0BE1C77A9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C21633B4B81A43629366CC3F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA6131558CB24D5A98189303 /* Copy Pods Resources */ = {
@@ -497,28 +491,21 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2F85A81D1947F35200664182 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F85A81E1947F35200664182 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		2F85A8201947F35200664182 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F85A8211947F35200664182 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		2F85A8361947F35200664182 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2F85A8371947F35200664182 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2FA3726619C481130065D96D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FA3726719C481130065D96D /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -598,35 +585,38 @@
 		};
 		2F85A83E1947F35200664182 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61F65BA7CEB14DFCB6AFA7C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 18EF1BF49F3F4D9D9A9BD51E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gumshoe/Gumshoe-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Gumshoe/Gumshoe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Gumshoe;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		2F85A83F1947F35200664182 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61F65BA7CEB14DFCB6AFA7C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 18EF1BF49F3F4D9D9A9BD51E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gumshoe/Gumshoe-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Gumshoe/Gumshoe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Gumshoe;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		2F85A8411947F35200664182 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25879CADBECE4CB485CE3123 /* Pods-GumshoeTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Gumshoe.app/Gumshoe";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -649,7 +639,6 @@
 		};
 		2F85A8421947F35200664182 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25879CADBECE4CB485CE3123 /* Pods-GumshoeTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Gumshoe.app/Gumshoe";
 				FRAMEWORK_SEARCH_PATHS = (

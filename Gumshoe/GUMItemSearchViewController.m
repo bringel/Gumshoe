@@ -13,7 +13,7 @@
 #import "GUMMovieTableViewCell.h"
 #import "AsyncImageView.h"
 
-@interface GUMItemSearchViewController () <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GUMItemSearchViewController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) NSArray *searchResults;
 
@@ -34,9 +34,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"GUMMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
-    self.searchDisplayController.searchResultsTableView.delegate = self;
-    self.searchDisplayController.searchResultsTableView.dataSource = self;
+//    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"GUMMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
+//    self.searchDisplayController.searchResultsTableView.delegate = self;
+//    self.searchDisplayController.searchResultsTableView.dataSource = self;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    UISearchBar *searchBar = self.searchController.searchBar;
+   // searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
+    self.tableView.tableHeaderView = searchBar;
+    self.definesPresentationContext = YES;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    searchBar.scopeButtonTitles = @[@"Movies", @"TV Shows", @"Books", @"Video Games"];
+    
+    searchBar.showsScopeBar = YES;
+    //set the font so nothing gets clipped. Ideally we could use something other than the scope bar here.
+    [searchBar setScopeBarButtonTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
+    searchBar.delegate = self;
+    //searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
+   // [searchBar sizeToFit];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,30 +85,45 @@
     if([movie valueForKey:@"poster_path"] != [NSNull null]){
         [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
         cell.posterImageView.image = nil;
-        NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[movie valueForKey:@"poster_path"]];
+        NSString *path = [NSString stringWithFormat:@"%@%@", @"original", [movie valueForKey:@"poster_path"]];
+        NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:path];
         cell.posterImageView.imageURL = posterURL;
     }
 
     NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKey:@"release_date"]];
-                              NSDate *dvdRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.dvd"]];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     //TODO: Set the locale information
-    cell.detailsLabel.text = [NSString stringWithFormat:@"Theaters - %@ | DVD - %@",[dateFormatter stringFromDate:theaterRelease],[dateFormatter stringFromDate:dvdRelease]];
+    cell.detailsLabel.text = [NSString stringWithFormat:@"In Theaters - %@",[dateFormatter stringFromDate:theaterRelease]];
     return cell;
 }
 
 #pragma mark - UISearchDisplayDelegate
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    
-    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
+//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+//    
+//    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
+//        self.searchResults = movieData;
+//        [self.searchDisplayController.searchResultsTableView reloadData];
+//        
+//    } failure:^(NSError *error) {
+//        NSLog(@"Got an error %@", error);
+//    }];
+//    return NO;
+//}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText success:^(NSArray *movieData) {
         self.searchResults = movieData;
-        [self.searchDisplayController.searchResultsTableView reloadData];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"Got an error %@", error);
+        [self.tableView reloadData];
+    } failure:^(NSError *error){
+        NSLog(@"Got an error %@",error);
     }];
-    return NO;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
+    
 }
 
 #pragma mark - UITableViewDelegate
@@ -111,7 +142,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSDictionary *movieData = self.searchResults[self.searchDisplayController.searchResultsTableView.indexPathForSelectedRow.row];
+    NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
     GUMItemDetailViewController *itemDetailVC = segue.destinationViewController;
     itemDetailVC.itemData = movieData;
     

@@ -27,6 +27,15 @@
         client = [[GUMMovieDatabaseClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.themoviedb.org/3/"] sessionConfiguration:configuration];
         client.requestSerializer = [AFHTTPRequestSerializer serializer];
         client.responseSerializer = [AFJSONResponseSerializer serializer];
+        [client GET:@" configuration" parameters:@{ @"api_key" : [client _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+            if(response.statusCode == 200){
+                NSDictionary *responseData = responseObject;
+                client.posterBaseURL = [NSURL URLWithString:[responseData valueForKeyPath:@"images.base_url"]];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
     });
     
     return client;
@@ -38,6 +47,7 @@
     return [[appDelegate apiInfo] objectForKey:@"themoviedb_key"];
 }
 
+/*
 - (NSURL *)posterBaseURL{
     
     if(_posterBaseURL == nil){
@@ -56,6 +66,7 @@
     }
     return _posterBaseURL;
 }
+ */
 
 - (void)searchForMovieWithTitle:(NSString *)title
                              success:(void (^)(NSArray *movieData))successBlock

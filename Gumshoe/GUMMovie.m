@@ -13,8 +13,12 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"rottentomatoesID" : @"id",
-             @"theatricalReleaseDate" : @"release_dates.theater",
+             @"moviedbID" : @"id",
+             @"theatricalReleaseDate" : @"release_date",
+             @"title" : @"title",
+             @"synopsis" : @"overview",
+             @"imdbID" : @"imdb_id",
+             @"status" : @"status"
              };
 }
 
@@ -26,6 +30,10 @@
     return [MTLValueTransformer transformerWithBlock:^NSDate *(NSString *dateString) {
         return [formatter dateFromString:dateString];
     }];
+}
+
++ (NSValueTransformer *)statusValueTransformer{
+    return [[NSValueTransformer alloc] init];
 }
 
 @end
