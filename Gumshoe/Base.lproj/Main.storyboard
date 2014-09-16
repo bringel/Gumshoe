@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="8118" y="1768.5"/>
         </scene>
-        <!--Item Detail View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="lH4-fe-9PD">
             <objects>
-                <viewController id="JDf-In-zyZ" customClass="GUMItemDetailViewController" sceneMemberID="viewController">
+                <viewController id="JDf-In-zyZ" customClass="GUMMovieDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3xq-r4-8xp"/>
                         <viewControllerLayoutGuide type="bottom" id="ajs-VO-gdu"/>

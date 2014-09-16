@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F29979D194E062000DB6174 /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F29979C194E062000DB6174 /* apikeys.plist */; };
-		2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */; };
+		2F3AA8FF1975FC8F009691DC /* GUMMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA8FE1975FC8F009691DC /* GUMMovieDetailViewController.m */; };
 		2F3AA9031975FCF7009691DC /* GUMMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */; };
 		2F3AA9041975FCF7009691DC /* GUMMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA9021975FCF7009691DC /* GUMMovieTableViewCell.xib */; };
 		2F3AA90619761B37009691DC /* searchresult.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AA90519761B37009691DC /* searchresult.json */; };
@@ -61,8 +61,8 @@
 		16EC0E455DBD4A61A87C0B3F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EF1BF49F3F4D9D9A9BD51E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		2F29979C194E062000DB6174 /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
-		2F3AA8FD1975FC8F009691DC /* GUMItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMItemDetailViewController.h; sourceTree = "<group>"; };
-		2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMItemDetailViewController.m; sourceTree = "<group>"; };
+		2F3AA8FD1975FC8F009691DC /* GUMMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovieDetailViewController.h; sourceTree = "<group>"; };
+		2F3AA8FE1975FC8F009691DC /* GUMMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovieDetailViewController.m; sourceTree = "<group>"; };
 		2F3AA9001975FCF7009691DC /* GUMMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMMovieTableViewCell.h; sourceTree = "<group>"; };
 		2F3AA9011975FCF7009691DC /* GUMMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMMovieTableViewCell.m; sourceTree = "<group>"; };
 		2F3AA9021975FCF7009691DC /* GUMMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUMMovieTableViewCell.xib; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 				2FD2FDB019736548008D3471 /* GUMListViewController.m */,
 				2FD2FDB71974C45D008D3471 /* GUMItemSearchViewController.h */,
 				2FD2FDB81974C45D008D3471 /* GUMItemSearchViewController.m */,
-				2F3AA8FD1975FC8F009691DC /* GUMItemDetailViewController.h */,
-				2F3AA8FE1975FC8F009691DC /* GUMItemDetailViewController.m */,
+				2F3AA8FD1975FC8F009691DC /* GUMMovieDetailViewController.h */,
+				2F3AA8FE1975FC8F009691DC /* GUMMovieDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				2FD2FDB41973750C008D3471 /* Visor.xcdatamodeld in Sources */,
 				2FCC1B46197CB08400E12621 /* GUMMovieList.m in Sources */,
 				2F85A8181947F35200664182 /* main.m in Sources */,
-				2F3AA8FF1975FC8F009691DC /* GUMItemDetailViewController.m in Sources */,
+				2F3AA8FF1975FC8F009691DC /* GUMMovieDetailViewController.m in Sources */,
 				2FD2FDB119736548008D3471 /* GUMListViewController.m in Sources */,
 				2FCC1B491981EF8F00E12621 /* GUMMovieDatabaseClient.m in Sources */,
 				2FCC1B40197CA92100E12621 /* GUMMovie.m in Sources */,

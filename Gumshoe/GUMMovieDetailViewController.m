@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "GUMItemDetailViewController.h"
+#import "GUMMovieDetailViewController.h"
 #import "AsyncImageView.h"
 #import "GUMMovie.h"
 #import "MTLJSONAdapter.h"
 #import "GUMMovieDatabaseClient.h"
 
-@interface GUMItemDetailViewController ()
+@interface GUMMovieDetailViewController ()
 
 @end
 
-@implementation GUMItemDetailViewController
+@implementation GUMMovieDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

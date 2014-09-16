@@ -9,7 +9,7 @@
 #import "GUMItemSearchViewController.h"
 #import "GUMRottenTomatesClient.h"
 #import "GUMMovieDatabaseClient.h"
-#import "GUMItemDetailViewController.h"
+#import "GUMMovieDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
 #import "AsyncImageView.h"
 
@@ -143,7 +143,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
-    GUMItemDetailViewController *itemDetailVC = segue.destinationViewController;
+    GUMMovieDetailViewController *itemDetailVC = segue.destinationViewController;
     itemDetailVC.itemId = movieData[@"id"];
     
 }

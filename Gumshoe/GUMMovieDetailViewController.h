@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class AsyncImageView;
 
-@interface GUMItemDetailViewController : UIViewController
+@interface GUMMovieDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet AsyncImageView *posterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
