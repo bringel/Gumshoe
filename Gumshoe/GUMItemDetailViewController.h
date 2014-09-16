@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *synopsisTextView;
 
-@property (strong, nonatomic) NSDictionary *itemData;
+@property (strong, nonatomic) NSString *itemId;
 
 - (IBAction)addItem:(id)sender;
 @end

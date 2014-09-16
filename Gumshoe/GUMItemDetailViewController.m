@@ -10,6 +10,7 @@
 #import "AsyncImageView.h"
 #import "GUMMovie.h"
 #import "MTLJSONAdapter.h"
+#import "GUMMovieDatabaseClient.h"
 
 @interface GUMItemDetailViewController ()
 
@@ -30,8 +31,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.posterImageView.imageURL = [NSURL URLWithString: [self.itemData valueForKeyPath:@"posters.detailed"]];
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
+ //   self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", @"original", self.itemData[@"poster_path"]]];
+   // self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +43,7 @@
 
 - (IBAction)addItem:(id)sender{
     NSError *error;
-    GUMMovie *newMovie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:self.itemData error:&error];
+   // GUMMovie *newMovie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:self.itemData error:&error];
 }
 
 /*

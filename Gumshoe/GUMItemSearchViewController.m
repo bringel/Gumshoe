@@ -44,11 +44,11 @@
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
-    searchBar.scopeButtonTitles = @[@"Movies", @"TV Shows", @"Books", @"Video Games"];
+    //searchBar.scopeButtonTitles = @[@"Movies", @"TV Shows", @"Books", @"Video Games"];
     
-    searchBar.showsScopeBar = YES;
+    //searchBar.showsScopeBar = YES;
     //set the font so nothing gets clipped. Ideally we could use something other than the scope bar here.
-    [searchBar setScopeBarButtonTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
+    //[searchBar setScopeBarButtonTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
     searchBar.delegate = self;
     //searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
    // [searchBar sizeToFit];
@@ -144,7 +144,7 @@
     // Pass the selected object to the new view controller.
     NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
     GUMItemDetailViewController *itemDetailVC = segue.destinationViewController;
-    itemDetailVC.itemData = movieData;
+    itemDetailVC.itemId = movieData[@"id"];
     
 }
 
