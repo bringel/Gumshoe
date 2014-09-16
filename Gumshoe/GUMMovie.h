@@ -20,6 +20,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSNumber *moviedbID;
 @property (strong, nonatomic) NSString *imdbID;
 @property (strong, nonatomic) NSString *synopsis;
+@property (strong, nonatomic) NSString *posterPath;
 @property (nonatomic) GUMMovieStatus status;
 
 @end

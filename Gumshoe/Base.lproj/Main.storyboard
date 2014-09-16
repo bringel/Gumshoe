@@ -156,7 +156,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ANQ-h1-101"/>
                     <connections>
-                        <segue destination="JDf-In-zyZ" kind="show" identifier="showItemDetails" id="qgb-9s-MqO"/>
+                        <segue destination="JDf-In-zyZ" kind="show" identifier="showMovieDetails" id="qgb-9s-MqO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjM-PD-Q1B" userLabel="First Responder" sceneMemberID="firstResponder"/>

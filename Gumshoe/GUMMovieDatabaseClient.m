@@ -27,7 +27,7 @@
         client = [[GUMMovieDatabaseClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.themoviedb.org/3/"] sessionConfiguration:configuration];
         client.requestSerializer = [AFHTTPRequestSerializer serializer];
         client.responseSerializer = [AFJSONResponseSerializer serializer];
-        [client GET:@" configuration" parameters:@{ @"api_key" : [client _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
+        [client GET:@"configuration" parameters:@{ @"api_key" : [client _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
             if(response.statusCode == 200){
                 NSDictionary *responseData = responseObject;
@@ -86,6 +86,23 @@
       failure:^(NSURLSessionDataTask *task, NSError *error) {
           failureBlock(error);
       }];
+}
+
+- (void)getMovieInformation:(NSNumber *)movieId
+                    success:(void (^)(NSDictionary *movieData))successBlock
+                    failure:(void (^)(NSError *))failureBlock{
+    NSString *urlString = [NSString stringWithFormat:@"movie/%@", movieId];
+    [self GET:urlString parameters:@{ @"api_key" : [self _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        if(response.statusCode == 200){
+            successBlock(responseObject);
+        }
+        else{
+            failureBlock([NSError errorWithDomain:@"Networking Error" code:response.statusCode userInfo:@{}]);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(error);
+    }];
 }
 
 @end

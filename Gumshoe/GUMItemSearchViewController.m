@@ -50,7 +50,7 @@
     //set the font so nothing gets clipped. Ideally we could use something other than the scope bar here.
     //[searchBar setScopeBarButtonTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
     searchBar.delegate = self;
-    //searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
+    searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
    // [searchBar sizeToFit];
     
 }
@@ -129,7 +129,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"showItemDetails" sender:self];
+    [self performSegueWithIdentifier:@"showMovieDetails" sender:self];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -142,9 +142,11 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
-    GUMMovieDetailViewController *itemDetailVC = segue.destinationViewController;
-    itemDetailVC.itemId = movieData[@"id"];
+    if([segue.identifier isEqualToString:@"showMovieDetails"]){
+        NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
+        GUMMovieDetailViewController *itemDetailVC = segue.destinationViewController;
+        itemDetailVC.itemId = movieData[@"id"];
+    }
     
 }
 

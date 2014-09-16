@@ -15,6 +15,7 @@
 + (instancetype)sharedClient;
 
 - (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *))successBlock failure:(void (^)(NSError *))failureBlock;
-- (NSURL *)posterBaseURL;
+- (void)getMovieInformation:(NSNumber *)movieId success:(void (^)(NSDictionary *movieData))successBlock failure:(void (^)(NSError *))failureBlock;
+//- (NSURL *)posterBaseURL;
 
 @end

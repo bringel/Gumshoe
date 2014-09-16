@@ -14,6 +14,8 @@
 
 @interface GUMMovieDetailViewController ()
 
+@property (strong, nonatomic) GUMMovie *movie;
+
 @end
 
 @implementation GUMMovieDetailViewController
@@ -33,6 +35,19 @@
     // Do any additional setup after loading the view.
  //   self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", @"original", self.itemData[@"poster_path"]]];
    // self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
+    [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId
+                                                       success:^(NSDictionary *movieData) {
+                                                           NSError *error;
+                                                           self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
+                                                           NSString *urlString = [NSString stringWithFormat:@"original%@",self.movie.posterPath];
+                                                           self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
+                                                           NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
+                                                           self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
+                                                           self.synopsisTextView.text = self.movie.synopsis;
+    }
+                                                       failure:^(NSError *error) {
+                                                           NSLog(@"Error %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

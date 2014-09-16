@@ -8,6 +8,7 @@
 
 #import "GUMMovie.h"
 #import "MTLValueTransformer.h"
+#import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 
 @implementation GUMMovie
 
@@ -18,11 +19,12 @@
              @"title" : @"title",
              @"synopsis" : @"overview",
              @"imdbID" : @"imdb_id",
+             @"posterPath" : @"poster_path",
              @"status" : @"status"
              };
 }
 
-+ (NSValueTransformer *)theatricalReleaseDateValueTransformer{
++ (NSValueTransformer *)theatricalReleaseDateJSONTransformer{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-mm-dd";
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
@@ -32,8 +34,15 @@
     }];
 }
 
-+ (NSValueTransformer *)statusValueTransformer{
-    return [[NSValueTransformer alloc] init];
++ (NSValueTransformer *)statusJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^NSNumber *(NSString *status) {
+        if([status isEqualToString:@"Released"]){
+            return @(GUMReleased);
+        }
+        else{
+            return @(GUMNotReleased);
+        }
+    }];
 }
 
 @end
