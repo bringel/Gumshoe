@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "GUMMovieList.h"
+#import "MTLModel.h"
 
-@interface GUMUser : NSObject
+@interface GUMUser : MTLModel
 
 @property (strong, nonatomic) GUMMovieList *movieList;
+
++ (instancetype)currentUser;
+
+- (void)saveUser;
 @end

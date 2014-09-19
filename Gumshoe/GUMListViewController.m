@@ -8,8 +8,12 @@
 
 #import "GUMListViewController.h"
 //#import "MDMCoreData.h"
+#import "GUMUser.h"
+#import "GUMMovie.h"
 
-@interface GUMListViewController () <NSFetchedResultsControllerDelegate>
+@interface GUMListViewController ()
+
+@property (strong, nonatomic) GUMUser *user;
 
 @end
 
@@ -22,6 +26,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (GUMUser *)user{
+    if(_user == nil){
+        _user = [GUMUser currentUser];
+    }
+    return _user;
 }
 
 - (void)viewDidLoad
@@ -91,7 +102,7 @@
     // Return the number of rows in the section.
 //    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
 //    return [sectionInfo numberOfObjects];
-    return 0;
+    return [self.user.movieList count];
 }
 
 
@@ -100,7 +111,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"itemCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    GUMMovie *currentMovie = [self.user.movieList movieAtIndex:indexPath.row];
     
+    cell.textLabel.text = currentMovie.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", currentMovie.moviedbID];
     return cell;
 }
 

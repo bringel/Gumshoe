@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
-@interface GUMMovieList : NSObject
+@class GUMMovie;
 
+@interface GUMMovieList : MTLModel
+
+- (void)addMovie:(GUMMovie *)movie;
+
+- (NSUInteger)count;
+- (GUMMovie *)movieAtIndex:(NSUInteger)index;
 @end

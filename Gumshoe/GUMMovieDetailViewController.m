@@ -11,6 +11,7 @@
 #import "GUMMovie.h"
 #import "MTLJSONAdapter.h"
 #import "GUMMovieDatabaseClient.h"
+#import "GUMUser.h"
 
 @interface GUMMovieDetailViewController ()
 
@@ -57,8 +58,10 @@
 }
 
 - (IBAction)addItem:(id)sender{
-    NSError *error;
-   // GUMMovie *newMovie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:self.itemData error:&error];
+    GUMUser *currentUser = [GUMUser currentUser];
+    
+    [currentUser.movieList addMovie:self.movie];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
