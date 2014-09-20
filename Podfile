@@ -6,6 +6,7 @@ pod "AFNetworking", "~> 2.0"
 pod "AFNetworkActivityLogger", "~> 2.0"
 pod "Mantle", "~> 1.5"
 pod "AsyncImageView"
+pod "HMSegmentedControl", "~> 1.0"
 
 target :GumshoeTests do
   pod "OCMock", "~> 3.0"

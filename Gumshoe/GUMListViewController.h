@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HMSegmentedControl.h"
 //@class MDMPersistenceController;
 
-@interface GUMListViewController : UITableViewController
+@interface GUMListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 //@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 //@property (nonatomic, strong) MDMPersistenceController *persitenceController;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet HMSegmentedControl *filter;
 
 @end

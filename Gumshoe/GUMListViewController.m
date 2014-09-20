@@ -10,18 +10,20 @@
 //#import "MDMCoreData.h"
 #import "GUMUser.h"
 #import "GUMMovie.h"
+#import "HMSegmentedControl.h"
 
 @interface GUMListViewController ()
 
-@property (strong, nonatomic) GUMUser *user;
+//@property (strong, nonatomic) HMSegmentedControl *segmentedControl;
 
+@property (strong, nonatomic) GUMUser *user;
 @end
 
 @implementation GUMListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
         // Custom initialization
     }
@@ -51,6 +53,18 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     self.navigationItem.leftBarButtonItem = settingsItem;
     self.navigationItem.rightBarButtonItems = @[addItem,flexibleSpace,filterItem];
+    NSArray *controlItems = @[@"Movies", @"TV Shows", @"Video Games", @"Books"];
+   // self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:controlItems];
+    //self.segmentedControl.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 40);
+//    self.segmentedControl.sectionTitles = controlItems;
+    self.filter.sectionTitles = controlItems;
+    self.filter.font = [UIFont systemFontOfSize:14.0];
+    self.filter.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
+    self.filter.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    
+//    self.filter.selectionStyle = HMSegmentedControlSelectionStyleFullWidth;
+    self.filter.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+   // self.tableView.tableHeaderView = self.segmentedControl;
 }
 
 - (void)didReceiveMemoryWarning
