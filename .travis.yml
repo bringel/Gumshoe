@@ -1,7 +1,11 @@
 language: objective-c
 xcode_workspace: Gumshoe.xcworkspace 
 xcode_scheme: Gumshoe
-xcode_sdk: iphonesimulator7.1
+xcode_sdk: iphonesimulator8.0
 
 before_install: 
   - travis_retry gem update cocoapods
+
+notifications:
+  email:
+    on_failure: change

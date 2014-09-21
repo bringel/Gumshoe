@@ -314,6 +314,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bradley Ringel";
 				TargetAttributes = {
+					2F85A8071947F35200664182 = {
+						DevelopmentTeam = HK7854N4SL;
+					};
 					2F85A82B1947F35200664182 = {
 						TestTargetID = 2F85A8071947F35200664182;
 					};

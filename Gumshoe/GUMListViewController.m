@@ -47,24 +47,27 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
-    UIBarButtonItem *filterItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(showFilter:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAdd:)];
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+
     self.navigationItem.leftBarButtonItem = settingsItem;
-    self.navigationItem.rightBarButtonItems = @[addItem,flexibleSpace,filterItem];
+    self.navigationItem.rightBarButtonItem = addItem;
     NSArray *controlItems = @[@"Movies", @"TV Shows", @"Video Games", @"Books"];
-   // self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:controlItems];
-    //self.segmentedControl.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 40);
-//    self.segmentedControl.sectionTitles = controlItems;
+    [self _setupFilterSelectionControl:controlItems];
+}
+
+- (void)_setupFilterSelectionControl:(NSArray *)controlItems
+{
     self.filter.sectionTitles = controlItems;
     self.filter.font = [UIFont systemFontOfSize:14.0];
     self.filter.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
     self.filter.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-    
-//    self.filter.selectionStyle = HMSegmentedControlSelectionStyleFullWidth;
+   
     self.filter.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-   // self.tableView.tableHeaderView = self.segmentedControl;
+    //add a one pixel border to the bottom. because it looks nice.
+    CALayer *borderLayer = [[CALayer alloc] init];
+    borderLayer.frame = CGRectMake(0, 39, self.filter.frame.size.width, 1.0f);
+    borderLayer.backgroundColor = self.filter.selectionIndicatorColor.CGColor;
+    [self.filter.layer addSublayer:borderLayer];
 }
 
 - (void)didReceiveMemoryWarning

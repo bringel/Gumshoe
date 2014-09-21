@@ -36,6 +36,7 @@
     // Do any additional setup after loading the view.
  //   self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", @"original", self.itemData[@"poster_path"]]];
    // self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
+    
     [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId
                                                        success:^(NSDictionary *movieData) {
                                                            NSError *error;
@@ -49,6 +50,10 @@
                                                        failure:^(NSError *error) {
                                                            NSLog(@"Error %@", error);
     }];
+    
+    self.addButton.layer.cornerRadius = 3.5f;
+    self.addButton.layer.borderColor = self.addButton.tintColor.CGColor;
+    self.addButton.layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning
