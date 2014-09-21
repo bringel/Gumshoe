@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>guidebox_key</key>
+	<string></string>
 	<key>themoviedb_key</key>
-	<string>placeholder-key</string>
+	<string>3a190510cf51e65c4e4649f58260e42c</string>
 	<key>rottentomatoes_api_key</key>
 	<string>uwrmrctat8y2tzk7jdaagn33</string>
 </dict>
