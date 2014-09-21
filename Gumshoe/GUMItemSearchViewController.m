@@ -113,8 +113,17 @@
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText success:^(NSArray *movieData) {
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+//    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText success:^(NSArray *movieData) {
+//        self.searchResults = movieData;
+//        [self.tableView reloadData];
+//    } failure:^(NSError *error){
+//        NSLog(@"Got an error %@",error);
+//    }];
+//}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchBar.text success:^(NSArray *movieData) {
         self.searchResults = movieData;
         [self.tableView reloadData];
     } failure:^(NSError *error){
