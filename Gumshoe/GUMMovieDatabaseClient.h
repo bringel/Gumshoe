@@ -8,14 +8,14 @@
 //  This is an AFNetworking client for themoviedb.org
 
 #import "AFHTTPSessionManager.h"
+#import "GUMItemSearchClient.h"
 
-@interface GUMMovieDatabaseClient : AFHTTPSessionManager
+@interface GUMMovieDatabaseClient : AFHTTPSessionManager <GUMItemSearchClient>
 
 @property (nonatomic, strong) NSURL *posterBaseURL;
 + (instancetype)sharedClient;
 
 - (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *))successBlock failure:(void (^)(NSError *))failureBlock;
 - (void)getMovieInformation:(NSNumber *)movieId success:(void (^)(NSDictionary *movieData))successBlock failure:(void (^)(NSError *))failureBlock;
-//- (NSURL *)posterBaseURL;
 
 @end
