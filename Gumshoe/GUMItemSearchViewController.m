@@ -11,7 +11,6 @@
 #import "GUMMovieDatabaseClient.h"
 #import "GUMMovieDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
-#import "AsyncImageView.h"
 
 @interface GUMItemSearchViewController () <UISearchBarDelegate>
 
@@ -67,11 +66,11 @@
     cell.titleLabel.text = movie[@"title"];
     
     if([movie valueForKey:@"poster_path"] != [NSNull null]){
-        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
+//        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
         cell.posterImageView.image = nil;
         NSString *path = [NSString stringWithFormat:@"%@%@", @"original", [movie valueForKey:@"poster_path"]];
         NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:path];
-        cell.posterImageView.imageURL = posterURL;
+//        cell.posterImageView.imageURL = posterURL;
     }
 
     NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKey:@"release_date"]];

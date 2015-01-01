@@ -7,7 +7,6 @@
 //
 
 #import "GUMMovieDetailViewController.h"
-#import "AsyncImageView.h"
 #import "GUMMovie.h"
 #import "MTLJSONAdapter.h"
 #import "GUMMovieDatabaseClient.h"
@@ -40,7 +39,7 @@
                                                            NSError *error;
                                                            self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
                                                            NSString *urlString = [NSString stringWithFormat:@"original%@",self.movie.posterPath];
-                                                           self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
+                                                           //self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
                                                            NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
                                                            self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
                                                            self.synopsisTextView.text = self.movie.synopsis;

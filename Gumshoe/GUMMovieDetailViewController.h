@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class AsyncImageView;
 
 @interface GUMMovieDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet AsyncImageView *posterImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *synopsisTextView;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;

@@ -10,7 +10,6 @@
 //#import "MDMCoreData.h"
 #import "GUMUser.h"
 #import "GUMMovie.h"
-#import "HMSegmentedControl.h"
 
 @interface GUMListViewController ()
 

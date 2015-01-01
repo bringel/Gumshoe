@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class AsyncImageView;
-
 @interface GUMMovieTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
-@property (weak, nonatomic) IBOutlet AsyncImageView *posterImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 
 @end
