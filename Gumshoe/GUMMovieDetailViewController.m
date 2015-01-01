@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
- //   self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", @"original", self.itemData[@"poster_path"]]];
-   // self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%@)", self.itemData[@"title"], self.itemData[@"year"]];
     
     [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId
                                                        success:^(NSDictionary *movieData) {

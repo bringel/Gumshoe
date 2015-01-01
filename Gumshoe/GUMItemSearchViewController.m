@@ -34,25 +34,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"GUMMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"movieCell"];
-//    self.searchDisplayController.searchResultsTableView.delegate = self;
-//    self.searchDisplayController.searchResultsTableView.dataSource = self;
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     UISearchBar *searchBar = self.searchController.searchBar;
-   // searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
     self.tableView.tableHeaderView = searchBar;
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
-    //searchBar.scopeButtonTitles = @[@"Movies", @"TV Shows", @"Books", @"Video Games"];
-    
-    //searchBar.showsScopeBar = YES;
-    //set the font so nothing gets clipped. Ideally we could use something other than the scope bar here.
-    //[searchBar setScopeBarButtonTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
     searchBar.delegate = self;
     searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
-   // [searchBar sizeToFit];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,11 +66,6 @@
     NSDictionary *movie = self.searchResults[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     
-//    NSURL *imageUrl = [movie valueForKeyPath:@"posters.thumbnail"];
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfiguration:@"background"]];
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:imageUrl];
-//    [dataTask resume];
-    //cell.posterImageView.imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
     if([movie valueForKey:@"poster_path"] != [NSNull null]){
         [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
         cell.posterImageView.image = nil;

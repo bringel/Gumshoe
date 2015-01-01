@@ -14,8 +14,6 @@
 
 @interface GUMListViewController ()
 
-//@property (strong, nonatomic) HMSegmentedControl *segmentedControl;
-
 @property (strong, nonatomic) GUMUser *user;
 @end
 
@@ -41,33 +39,9 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAdd:)];
 
-    self.navigationItem.leftBarButtonItem = settingsItem;
     self.navigationItem.rightBarButtonItem = addItem;
-    NSArray *controlItems = @[@"Movies", @"TV Shows", @"Video Games", @"Books"];
-    [self _setupFilterSelectionControl:controlItems];
-}
-
-- (void)_setupFilterSelectionControl:(NSArray *)controlItems
-{
-    self.filter.sectionTitles = controlItems;
-    self.filter.font = [UIFont systemFontOfSize:14.0];
-    self.filter.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
-    self.filter.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-   
-    self.filter.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    //add a one pixel border to the bottom. because it looks nice.
-    CALayer *borderLayer = [[CALayer alloc] init];
-    borderLayer.frame = CGRectMake(0, 39, self.filter.frame.size.width, 1.0f);
-    borderLayer.backgroundColor = self.filter.selectionIndicatorColor.CGColor;
-    [self.filter.layer addSublayer:borderLayer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,37 +49,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//
-//- (NSFetchedResultsController *)fetchedResultsController{
-//    if(_fetchedResultsController == nil){
-//        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"GUMMovie"];
-//        NSSortDescriptor *sortDiscriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//        fetchRequest.sortDescriptors = @[sortDiscriptor];
-//        _fetchedResultsController = [[NSFetchedResultsController alloc]
-//                                     initWithFetchRequest:fetchRequest
-//                                     managedObjectContext:self.persitenceController.managedObjectContext
-//                                     sectionNameKeyPath:nil
-//                                     cacheName:nil];
-//        _fetchedResultsController.delegate = self;
-//        
-//    }
-//    
-//    return _fetchedResultsController;
-//}
-//
-//- (MDMPersistenceController *)persitenceController{
-//    if(_persitenceController == nil){
-//        NSURL *storeURL = [NSURL fileURLWithPath:[[self _documentsDirectory] stringByAppendingPathComponent:@"visor.sqlite"]];
-//        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Visor" withExtension:@"momd"];
-//        _persitenceController = [[MDMPersistenceController alloc] initWithStoreURL:storeURL modelURL:modelURL];
-//    }
-//    return _persitenceController;
-//}
-//
-//- (NSString *)_documentsDirectory {
-//    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-//}
-//
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -117,8 +60,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-//    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
-//    return [sectionInfo numberOfObjects];
     return [self.user.movieList count];
 }
 
