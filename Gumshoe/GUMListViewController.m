@@ -18,9 +18,9 @@
 
 @implementation GUMListViewController
 
-- (id)init
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super init];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }

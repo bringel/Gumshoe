@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GUMListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface GUMListViewController : UITableViewController
 
 @end
