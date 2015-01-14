@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GUMListViewController : UITableViewController
+@interface GUMMovieListViewController : UITableViewController
 
 @end

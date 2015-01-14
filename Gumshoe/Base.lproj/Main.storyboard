@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--List View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="YRw-sC-b6L">
             <objects>
-                <tableViewController id="jrZ-83-PWo" customClass="GUMListViewController" sceneMemberID="viewController">
+                <tableViewController id="jrZ-83-PWo" customClass="GUMMovieListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2fv-JO-YVQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

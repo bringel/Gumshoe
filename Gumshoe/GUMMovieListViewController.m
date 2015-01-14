@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "GUMListViewController.h"
+#import "GUMMovieListViewController.h"
 //#import "MDMCoreData.h"
 #import "GUMUser.h"
 #import "GUMMovie.h"
 
-@interface GUMListViewController ()
+@interface GUMMovieListViewController ()
 
 @property (strong, nonatomic) GUMUser *user;
 @end
 
-@implementation GUMListViewController
+@implementation GUMMovieListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
