@@ -26,7 +26,7 @@
 
 + (NSValueTransformer *)theatricalReleaseDateJSONTransformer{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-mm-dd";
+    formatter.dateFormat = @"yyyy-MM-dd";
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     
     return [MTLValueTransformer transformerWithBlock:^NSDate *(NSString *dateString) {

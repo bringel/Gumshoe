@@ -11,6 +11,7 @@
 #import "MTLJSONAdapter.h"
 #import "GUMMovieDatabaseClient.h"
 #import "GUMUser.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GUMMovieDetailViewController ()
 
@@ -38,8 +39,9 @@
                                                        success:^(NSDictionary *movieData) {
                                                            NSError *error;
                                                            self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
-                                                           NSString *urlString = [NSString stringWithFormat:@"original%@",self.movie.posterPath];
+                                                           NSString *urlString = [NSString stringWithFormat:@"w342%@",self.movie.posterPath];
                                                            //self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
+                                                           [self.posterImageView setImageWithURL: [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString]];
                                                            NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
                                                            self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
                                                            self.synopsisTextView.text = self.movie.synopsis;
@@ -51,6 +53,7 @@
     self.addButton.layer.cornerRadius = 3.5f;
     self.addButton.layer.borderColor = self.addButton.tintColor.CGColor;
     self.addButton.layer.borderWidth = 1.0f;
+    self.posterImageView.contentMode = UIViewContentModeScaleToFill;
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) UISearchController *searchController;
 
+- (IBAction)cancelSearch:(id)sender;
 @end

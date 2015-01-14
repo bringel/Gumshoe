@@ -69,6 +69,7 @@
 		2F3AA90519761B37009691DC /* searchresult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchresult.json; sourceTree = "<group>"; };
 		2F64E97319CF8306001C4A64 /* GUMGuideboxClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUMGuideboxClient.h; sourceTree = "<group>"; };
 		2F64E97419CF8306001C4A64 /* GUMGuideboxClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUMGuideboxClient.m; sourceTree = "<group>"; };
+		2F6F190C1A59A4C9000A12C4 /* Gumshoe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gumshoe.entitlements; sourceTree = "<group>"; };
 		2F85A8081947F35200664182 /* Gumshoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gumshoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F85A80B1947F35200664182 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F85A80D1947F35200664182 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +186,7 @@
 		2F85A8121947F35200664182 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F6F190C1A59A4C9000A12C4 /* Gumshoe.entitlements */,
 				2F85A8131947F35200664182 /* Gumshoe-Info.plist */,
 				2F85A8141947F35200664182 /* InfoPlist.strings */,
 				2F85A8171947F35200664182 /* main.m */,
@@ -275,8 +277,8 @@
 				C1D8AA34D5844FB3BED5E979 /* Check Pods Manifest.lock */,
 				2F85A8041947F35200664182 /* Sources */,
 				2F85A8051947F35200664182 /* Frameworks */,
+				2F357B201A5851D900DC905B /* ShellScript */,
 				2F85A8061947F35200664182 /* Resources */,
-				2FEAD6F2195A6DC400BC19F6 /* ShellScript */,
 				28B2689938304B808A7E3FFE /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -321,6 +323,14 @@
 				TargetAttributes = {
 					2F85A8071947F35200664182 = {
 						DevelopmentTeam = HK7854N4SL;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					2F85A82B1947F35200664182 = {
 						TestTargetID = 2F85A8071947F35200664182;
@@ -386,7 +396,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FEAD6F2195A6DC400BC19F6 /* ShellScript */ = {
+		2F357B201A5851D900DC905B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,7 +407,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"";
 		};
 		44F1EDDD302641EBB5272C3A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -598,11 +608,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Gumshoe/Gumshoe.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gumshoe/Gumshoe-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Gumshoe/Gumshoe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Gumshoe;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -614,11 +627,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Gumshoe/Gumshoe.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gumshoe/Gumshoe-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Gumshoe/Gumshoe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Gumshoe;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -11,8 +11,9 @@
 #import "GUMMovieDatabaseClient.h"
 #import "GUMMovieDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface GUMItemSearchViewController () <UISearchBarDelegate>
+@interface GUMItemSearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (strong, nonatomic) NSArray *searchResults;
 
@@ -39,6 +40,7 @@
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
+    self.searchController.searchResultsUpdater = self;
     searchBar.delegate = self;
     searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchBar.frame.size.width, 44.0);
 }
@@ -68,9 +70,10 @@
     if([movie valueForKey:@"poster_path"] != [NSNull null]){
 //        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
         cell.posterImageView.image = nil;
-        NSString *path = [NSString stringWithFormat:@"%@%@", @"original", [movie valueForKey:@"poster_path"]];
+        NSString *path = [NSString stringWithFormat:@"%@%@", @"w342", [movie valueForKey:@"poster_path"]];
         NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:path];
 //        cell.posterImageView.imageURL = posterURL;
+        [cell.posterImageView setImageWithURL: posterURL];
     }
 
     NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKey:@"release_date"]];
@@ -80,19 +83,19 @@
     return cell;
 }
 
-#pragma mark - UISearchDisplayDelegate
+#pragma mark - UISearchResultsUpdating
 
-//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-//    
-//    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchString success:^(NSArray *movieData) {
-//        self.searchResults = movieData;
-//        [self.searchDisplayController.searchResultsTableView reloadData];
-//        
-//    } failure:^(NSError *error) {
-//        NSLog(@"Got an error %@", error);
-//    }];
-//    return NO;
-//}
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+    NSString *searchText = searchController.searchBar.text;
+    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText success:^(NSArray *movieData) {
+        self.searchResults = movieData;
+        [self.tableView reloadData];
+    } failure:^(NSError *error){
+        NSLog(@"Got an error %@",error);
+    }];
+}
+
 
 #pragma mark - UISearchBarDelegate
 
@@ -105,14 +108,14 @@
 //    }];
 //}
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchBar.text success:^(NSArray *movieData) {
-        self.searchResults = movieData;
-        [self.tableView reloadData];
-    } failure:^(NSError *error){
-        NSLog(@"Got an error %@",error);
-    }];
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+//    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchBar.text success:^(NSArray *movieData) {
+//        self.searchResults = movieData;
+//        [self.tableView reloadData];
+//    } failure:^(NSError *error){
+//        NSLog(@"Got an error %@",error);
+//    }];
+//}
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
     
@@ -129,6 +132,9 @@
 }
 #pragma mark - Navigation
 
+- (IBAction)cancelSearch:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -138,6 +144,11 @@
         NSDictionary *movieData = self.searchResults[self.tableView.indexPathForSelectedRow.row];
         GUMMovieDetailViewController *itemDetailVC = segue.destinationViewController;
         itemDetailVC.itemId = movieData[@"id"];
+        
+        //stop the uiimageviews from loading up images here since they are going off screen
+        for(GUMMovieTableViewCell *cell in self.tableView.visibleCells){
+            [cell.posterImageView cancelImageRequestOperation];
+        }
     }
     
 }

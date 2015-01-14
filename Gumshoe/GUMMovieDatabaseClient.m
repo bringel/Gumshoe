@@ -47,7 +47,7 @@
     return [[appDelegate apiInfo] objectForKey:@"themoviedb_key"];
 }
 
-/*
+
 - (NSURL *)posterBaseURL{
     
     if(_posterBaseURL == nil){
@@ -66,7 +66,7 @@
     }
     return _posterBaseURL;
 }
- */
+
 
 - (void)searchForMovieWithTitle:(NSString *)title
                              success:(void (^)(NSArray *movieData))successBlock
@@ -95,6 +95,7 @@
     [self GET:urlString parameters:@{ @"api_key" : [self _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         if(response.statusCode == 200){
+            NSLog(@"%@",responseObject);
             successBlock(responseObject);
         }
         else{
