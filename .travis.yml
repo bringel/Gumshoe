@@ -1,10 +1,12 @@
 language: objective-c
 xcode_workspace: Gumshoe.xcworkspace 
 xcode_scheme: Gumshoe
-xcode_sdk: iphonesimulator8.1
+xcode_sdk: iphonesimulator8.0
 
 before_install: 
   - travis_retry gem update cocoapods
+  - brew update
+  - brew install xctool
 
 notifications:
   email:
