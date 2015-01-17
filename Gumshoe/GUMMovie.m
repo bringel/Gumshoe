@@ -57,7 +57,13 @@
     NSArray *elements = [hppleParser searchWithXPathQuery:xpath];
     
     for(TFHppleElement *e in elements){
-        
+        if([[e.attributes valueForKey:@"class"] isEqualToString:@"streamNow"]){
+            //movie is available on instant
+            self.netflixStatus = GUMAvailable;
+            NSString *netflixLink = [e.attributes valueForKey:@"href"];
+            NSArray *components = [netflixLink componentsSeparatedByString:@"/"];
+            self.netflixID = [components lastObject];
+        }
     }
 }
 
