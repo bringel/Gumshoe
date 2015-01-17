@@ -13,6 +13,7 @@
 #import "GUMUser.h"
 #import "UIImageView+AFNetworking.h"
 #import "GUMRottenTomatoesClient.h"
+#import "Promise.h"
 
 @interface GUMMovieDetailViewController ()
 
@@ -36,22 +37,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId
-                                                       success:^(NSDictionary *movieData) {
-                                                           NSError *error;
-                                                           self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
-                                                           NSString *urlString = [NSString stringWithFormat:@"w342%@",self.movie.posterPath];
-                                                           //self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
-                                                           [self.posterImageView setImageWithURL: [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString]];
-                                                           NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
-                                                           self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
-                                                           self.synopsisTextView.text = self.movie.synopsis;
-                                                           [self syncMovieWithRottenTomatoes:self.movie];
-                                                           [self.movie updateNetflixStatus];
-    }
-                                                       failure:^(NSError *error) {
-                                                           NSLog(@"Error %@", error);
-    }];
+    PMKPromise *promise = [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId];
+    promise.then(^(NSDictionary *movieData) {
+        NSError *error;
+        self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
+        NSString *urlString = [NSString stringWithFormat:@"w342%@",self.movie.posterPath];
+        //self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
+        [self.posterImageView setImageWithURL: [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString]];
+        NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
+        self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
+        self.synopsisTextView.text = self.movie.synopsis;
+    }).then(^{
+        [self syncMovieWithRottenTomatoes:self.movie];
+    });
+    promise.catch(^(NSError *error) {
+        NSLog(@"Error %@", error);
+    });
     
     self.addButton.layer.cornerRadius = 3.5f;
     self.addButton.layer.borderColor = self.addButton.tintColor.CGColor;
@@ -73,16 +74,21 @@
 }
 
 - (void)syncMovieWithRottenTomatoes:(GUMMovie *)movie{
-    [[GUMRottenTomatoesClient sharedClient] searchForMovieWithTitle:movie.title success:^(NSArray *movieData) {
+    PMKPromise *promise = [[GUMRottenTomatoesClient sharedClient] searchForMovieWithTitle:movie.title];
+    
+    promise.then(^(NSArray *movieData) {
         for (NSDictionary *movieInfo in movieData) {
-            if([movie.imdbID isEqualToString:[movieInfo valueForKeyPath:@"alternate_ids.imdb"]]){
+            if([movie.imdbID isEqualToString:[NSString stringWithFormat:@"tt%@",[movieInfo valueForKeyPath:@"alternate_ids.imdb"]]]){
                 movie.rottenTomatoesID = [movieInfo valueForKey:@"id"];
                 movie.rottenTomatoesURL = [NSURL URLWithString:[movieInfo valueForKeyPath:@"links.alternate"]];
             }
         }
-    } failure:^(NSError *error) {
+    }).then(^{
+        [movie updateNetflixStatus];
+    });
+    promise.catch(^(NSError *error) {
         NSLog(@"Error %@",error);
-    }];
+    });
 }
 
 /*

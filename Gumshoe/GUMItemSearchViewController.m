@@ -12,6 +12,7 @@
 #import "GUMMovieDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "Promise.h"
 
 @interface GUMItemSearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 
@@ -88,12 +89,14 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
     NSString *searchText = searchController.searchBar.text;
-    [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText success:^(NSArray *movieData) {
+    PMKPromise *promise = [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText];
+    promise.then(^(NSArray *movieData) {
         self.searchResults = movieData;
         [self.tableView reloadData];
-    } failure:^(NSError *error){
+    });
+    promise.catch(^(NSError *error){
         NSLog(@"Got an error %@",error);
-    }];
+    });
 }
 
 

@@ -7,11 +7,12 @@
 //
 
 #import "AFHTTPSessionManager.h"
+@class PMKPromise;
 
 @interface GUMRottenTomatoesClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
 
-- (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *movieData))successBlock failure:(void (^)(NSError *error))failBlock;
+- (PMKPromise *)searchForMovieWithTitle:(NSString *)title;
 
 @end

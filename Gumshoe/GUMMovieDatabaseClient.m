@@ -68,41 +68,41 @@
 }
 
 
-- (void)searchForMovieWithTitle:(NSString *)title
-                             success:(void (^)(NSArray *movieData))successBlock
-                             failure:(void (^)(NSError *error))failureBlock{
-    [self GET:@"search/movie" parameters:@{ @"api_key" : [self _apiKey], @"query" : title, @"search_type" : @"ngram"}
-      success:^(NSURLSessionDataTask *task, id responseObject) {
-          NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-          if(response.statusCode == 200){
-              NSDictionary *responseData = responseObject;
-              NSArray *movies = [responseData objectForKey:@"results"];
-              successBlock(movies);
+- (PMKPromise *)searchForMovieWithTitle:(NSString *)title{
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        [self GET:@"search/movie" parameters:@{ @"api_key" : [self _apiKey], @"query" : title, @"search_type" : @"ngram"}
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+              if(response.statusCode == 200){
+                  NSDictionary *responseData = responseObject;
+                  NSArray *movies = [responseData objectForKey:@"results"];
+                  fulfill(movies);
+              }
+              else{
+                  reject([NSError errorWithDomain:@"Networking Error" code:response.statusCode userInfo:@{}]);
+              }
           }
-          else{
-              failureBlock([NSError errorWithDomain:@"Networking Error" code:response.statusCode userInfo:@{}]);
-          }
-      }
-      failure:^(NSURLSessionDataTask *task, NSError *error) {
-          failureBlock(error);
-      }];
+          failure:^(NSURLSessionDataTask *task, NSError *error) {
+              reject(error);
+          }];
+    }];
 }
 
-- (void)getMovieInformation:(NSNumber *)movieId
-                    success:(void (^)(NSDictionary *movieData))successBlock
-                    failure:(void (^)(NSError *))failureBlock{
+- (PMKPromise *)getMovieInformation:(NSNumber *)movieId{
     NSString *urlString = [NSString stringWithFormat:@"movie/%@", movieId];
-    [self GET:urlString parameters:@{ @"api_key" : [self _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-        if(response.statusCode == 200){
-            NSLog(@"%@",responseObject);
-            successBlock(responseObject);
-        }
-        else{
-            failureBlock([NSError errorWithDomain:@"Networking Error" code:response.statusCode userInfo:@{}]);
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(error);
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        [self GET:urlString parameters:@{ @"api_key" : [self _apiKey]} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+            if(response.statusCode == 200){
+                NSLog(@"%@",responseObject);
+                fulfill(responseObject);
+            }
+            else{
+                reject([NSError errorWithDomain:@"Networking Error" code:response.statusCode userInfo:@{}]);
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            reject(error);
+        }];
     }];
 }
 
