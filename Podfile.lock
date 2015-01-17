@@ -24,9 +24,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - hpple (0.2.0)
-  - Mantle (1.5.1):
-    - Mantle/extobjc (= 1.5.1)
-  - Mantle/extobjc (1.5.1)
+  - Mantle (1.5.3):
+    - Mantle/extobjc (= 1.5.3)
+  - Mantle/extobjc (1.5.3)
   - OMGHTTPURLRQ (2.1):
     - OMGHTTPURLRQ/RQ (= 2.1)
   - OMGHTTPURLRQ/FormURLEncode (2.1)
@@ -80,7 +80,7 @@ SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
-  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  Mantle: 8d84cacd6c2a69ff6fbce985a2b51298a5495de3
   OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
   PromiseKit: 89cb68ff4093e71221a63ca7272d427bf34c4560
 
