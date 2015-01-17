@@ -27,17 +27,61 @@ PODS:
   - Mantle (1.5.1):
     - Mantle/extobjc (= 1.5.1)
   - Mantle/extobjc (1.5.1)
+  - OMGHTTPURLRQ (2.1):
+    - OMGHTTPURLRQ/RQ (= 2.1)
+  - OMGHTTPURLRQ/FormURLEncode (2.1)
+  - OMGHTTPURLRQ/RQ (2.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (2.1)
+  - PromiseKit (1.2):
+    - PromiseKit/CALayer (= 1.2)
+    - PromiseKit/NSNotificationCenter (= 1.2)
+    - PromiseKit/NSURLConnection (= 1.2)
+    - PromiseKit/Pause (= 1.2)
+    - PromiseKit/UIActionSheet (= 1.2)
+    - PromiseKit/UIAlertView (= 1.2)
+    - PromiseKit/UIView (= 1.2)
+    - PromiseKit/UIViewController (= 1.2)
+    - PromiseKit/Until (= 1.2)
+    - PromiseKit/When (= 1.2)
+  - PromiseKit/CALayer (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/NSNotificationCenter (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/NSURLConnection (1.2):
+    - OMGHTTPURLRQ
+    - PromiseKit/Promise
+  - PromiseKit/Pause (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/Promise (1.2)
+  - PromiseKit/UIActionSheet (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/UIAlertView (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/UIView (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/UIViewController (1.2):
+    - PromiseKit/Promise
+  - PromiseKit/Until (1.2):
+    - PromiseKit/Promise
+    - PromiseKit/When
+  - PromiseKit/When (1.2):
+    - PromiseKit/Promise
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
   - AFNetworking (~> 2.0)
   - hpple (~> 0.2)
   - Mantle (~> 1.5)
+  - PromiseKit (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
+  PromiseKit: 89cb68ff4093e71221a63ca7272d427bf34c4560
 
 COCOAPODS: 0.35.0
