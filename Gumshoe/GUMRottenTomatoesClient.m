@@ -8,6 +8,7 @@
 
 #import "GUMRottenTomatoesClient.h"
 #import "GUMAppDelegate.h"
+#import "Promise.h"
 
 @interface GUMRottenTomatoesClient()
 
@@ -41,18 +42,19 @@
     return [[appDelegate apiInfo] objectForKey:@"rottentomatoes_api_key"];
 }
 
-- (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *movieData))successBlock failure:(void (^)(NSError *error))failBlock{
-    
-    [self GET:@"movies.json" parameters:@{ @"q" : title, @"apikey" : [self _apiKey]}
-      success:^(NSURLSessionDataTask *task, id responseObject) {
-          NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-          if(response.statusCode == 200){
-              NSDictionary *responseData = responseObject;
-              successBlock(responseData[@"movies"]);
+- (PMKPromise *)searchForMovieWithTitle:(NSString *)title{
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        [self GET:@"movies.json" parameters:@{ @"q" : title, @"apikey" : [self _apiKey]}
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+              if(response.statusCode == 200){
+                  NSDictionary *responseData = responseObject;
+                  fulfill(responseData[@"movies"]);
+              }
           }
-    }
-      failure:^(NSURLSessionDataTask *task, NSError *error) {
-          failBlock(error);
+          failure:^(NSURLSessionDataTask *task, NSError *error) {
+              reject(error);
+          }];
     }];
 }
 

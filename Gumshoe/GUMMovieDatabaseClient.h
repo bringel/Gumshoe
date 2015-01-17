@@ -9,13 +9,14 @@
 
 #import "AFHTTPSessionManager.h"
 #import "GUMItemSearchClient.h"
+#import "Promise.h"
 
 @interface GUMMovieDatabaseClient : AFHTTPSessionManager <GUMItemSearchClient>
 
 @property (nonatomic, strong) NSURL *posterBaseURL;
 + (instancetype)sharedClient;
 
-- (void)searchForMovieWithTitle:(NSString *)title success:(void (^)(NSArray *))successBlock failure:(void (^)(NSError *))failureBlock;
-- (void)getMovieInformation:(NSNumber *)movieId success:(void (^)(NSDictionary *movieData))successBlock failure:(void (^)(NSError *))failureBlock;
+- (PMKPromise *)searchForMovieWithTitle:(NSString *)title;
+- (PMKPromise *)getMovieInformation:(NSNumber *)movieId;
 
 @end
