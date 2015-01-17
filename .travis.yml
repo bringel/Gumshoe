@@ -3,6 +3,8 @@ xcode_workspace: Gumshoe.xcworkspace
 xcode_scheme: Gumshoe
 xcode_sdk: iphonesimulator 
 
+xctool_args: -destination "platform=iOS Simulator,name=iPhone 6"
+
 notifications:
   email:
     on_failure: change
