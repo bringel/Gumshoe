@@ -9,10 +9,15 @@
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
 
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, GUMMovieStatus) {
     GUMNotReleased,
     GUMReleased,
-} GUMMovieStatus;
+};
+
+typedef NS_ENUM(NSUInteger, GUMMovieSourceStatus) {
+    GUMAvailable,
+    GUMNotAvailable,
+};
 @interface GUMMovie : MTLModel <MTLJSONSerializing>
 
 @property (strong, nonatomic) NSString *title;
@@ -21,6 +26,12 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *imdbID;
 @property (strong, nonatomic) NSString *synopsis;
 @property (strong, nonatomic) NSString *posterPath;
+@property (strong, nonatomic) NSString *rottenTomatoesID;
+@property (strong, nonatomic) NSURL *rottenTomatoesURL;
 @property (nonatomic) GUMMovieStatus status;
+@property (nonatomic) GUMMovieSourceStatus netflixStatus;
+@property (strong, nonatomic) NSString *netflixID;
+
+- (void)updateNetflixStatus;
 
 @end

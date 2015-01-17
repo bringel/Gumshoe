@@ -8,7 +8,7 @@
 
 #import "AFHTTPSessionManager.h"
 
-@interface GUMRottenTomatesClient : AFHTTPSessionManager
+@interface GUMRottenTomatoesClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
 

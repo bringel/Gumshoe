@@ -12,6 +12,7 @@
 #import "GUMMovieDatabaseClient.h"
 #import "GUMUser.h"
 #import "UIImageView+AFNetworking.h"
+#import "GUMRottenTomatoesClient.h"
 
 @interface GUMMovieDetailViewController ()
 
@@ -45,6 +46,8 @@
                                                            NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
                                                            self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
                                                            self.synopsisTextView.text = self.movie.synopsis;
+                                                           [self syncMovieWithRottenTomatoes:self.movie];
+                                                           [self.movie updateNetflixStatus];
     }
                                                        failure:^(NSError *error) {
                                                            NSLog(@"Error %@", error);
@@ -67,6 +70,19 @@
     
     [currentUser.movieList addMovie:self.movie];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)syncMovieWithRottenTomatoes:(GUMMovie *)movie{
+    [[GUMRottenTomatoesClient sharedClient] searchForMovieWithTitle:movie.title success:^(NSArray *movieData) {
+        for (NSDictionary *movieInfo in movieData) {
+            if([movie.imdbID isEqualToString:[movieInfo valueForKeyPath:@"alternate_ids.imdb"]]){
+                movie.rottenTomatoesID = [movieInfo valueForKey:@"id"];
+                movie.rottenTomatoesURL = [NSURL URLWithString:[movieInfo valueForKeyPath:@"links.alternate"]];
+            }
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"Error %@",error);
+    }];
 }
 
 /*

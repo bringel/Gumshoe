@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Bradley Ringel. All rights reserved.
 //
 
-#import "GUMRottenTomatesClient.h"
+#import "GUMRottenTomatoesClient.h"
 #import "GUMAppDelegate.h"
 
-@interface GUMRottenTomatesClient()
+@interface GUMRottenTomatoesClient()
 
 @end
 
-@implementation GUMRottenTomatesClient
+@implementation GUMRottenTomatoesClient
 
 + (instancetype)sharedClient{
-    static GUMRottenTomatesClient *client;
+    static GUMRottenTomatoesClient *client;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        client = [[GUMRottenTomatesClient alloc] init];
+        client = [[GUMRottenTomatoesClient alloc] init];
     });
     return client;
 }

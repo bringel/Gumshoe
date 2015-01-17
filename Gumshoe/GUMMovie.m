@@ -9,6 +9,7 @@
 #import "GUMMovie.h"
 #import "MTLValueTransformer.h"
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
+#import <hpple/TFHpple.h>
 
 @implementation GUMMovie
 
@@ -43,6 +44,21 @@
             return @(GUMNotReleased);
         }
     }];
+}
+
+- (void)updateNetflixStatus{
+    if (!self.rottenTomatoesURL){
+        NSLog(@"This movie %@ needs a RottenTomatoes URL",self);
+    }
+    
+    NSData *htmlData = [NSData dataWithContentsOfURL:self.rottenTomatoesURL];
+    TFHpple *hppleParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSString *xpath = @"//tr[@id='netflixAffiliates']/td/a";
+    NSArray *elements = [hppleParser searchWithXPathQuery:xpath];
+    
+    for(TFHppleElement *e in elements){
+        
+    }
 }
 
 @end

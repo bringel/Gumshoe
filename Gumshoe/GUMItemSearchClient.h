@@ -8,7 +8,7 @@
 
 @protocol GUMItemSearchClient <NSObject>
 
-- (instancetype)sharedClient;
++ (instancetype)sharedClient;
 
 - (void)searchForItemWithTitle:(NSString *)title success:(void (^)(NSArray *))successBlock failure:(void (^)(NSError *))failureBlock;
 

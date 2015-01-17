@@ -42,6 +42,7 @@
                     <navigationItem key="navigationItem" id="ybl-vV-p4N"/>
                     <connections>
                         <segue destination="4Sk-Ym-w2h" kind="presentation" identifier="showAddViewController" id="OPi-4w-y58"/>
+                        <segue destination="JDf-In-zyZ" kind="show" identifier="showMovieDetail" id="fjz-ex-0qM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0r-RR-jtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -67,11 +68,11 @@
             </objects>
             <point key="canvasLocation" x="6287" y="2016"/>
         </scene>
-        <!--Item-->
+        <!--TV Shows-->
         <scene sceneID="bKs-Ic-eFq">
             <objects>
                 <navigationController id="u0Q-CH-vBx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gDy-8E-Rb6"/>
+                    <tabBarItem key="tabBarItem" title="TV Shows" id="gDy-8E-Rb6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kea-4j-Vt6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,11 +82,11 @@
             </objects>
             <point key="canvasLocation" x="6287" y="2820"/>
         </scene>
-        <!--Item-->
+        <!--Video Games-->
         <scene sceneID="n8h-kM-t4v">
             <objects>
                 <navigationController id="iPZ-CM-0l4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="V9U-KS-J6e"/>
+                    <tabBarItem key="tabBarItem" title="Video Games" id="V9U-KS-J6e"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qaO-eh-7AF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -95,11 +96,11 @@
             </objects>
             <point key="canvasLocation" x="6287" y="4270"/>
         </scene>
-        <!--Item-->
+        <!--Books-->
         <scene sceneID="35A-lX-Pze">
             <objects>
                 <navigationController id="o4U-bt-6k5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FKb-Pp-EBu"/>
+                    <tabBarItem key="tabBarItem" title="Books" id="FKb-Pp-EBu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qsy-0f-rP1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -339,4 +340,7 @@
             <point key="canvasLocation" x="5383" y="3120"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fjz-ex-0qM"/>
+    </inferredMetricsTieBreakers>
 </document>

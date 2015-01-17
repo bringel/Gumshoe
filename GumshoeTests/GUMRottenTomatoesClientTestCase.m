@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "GUMRottenTomatesClient.h"
+#import "GUMRottenTomatoesClient.h"
 #import "OHHTTPStubs.h"
 #import "OHHTTPStubsResponse+JSON.h"
 
 @interface GUMRottenTomatoesClientTestCase : XCTestCase
 
-@property (strong, nonatomic) GUMRottenTomatesClient *rtClient;
+@property (strong, nonatomic) GUMRottenTomatoesClient *rtClient;
 @property (strong, nonatomic) NSDictionary *apiResponse;
 
 @end
@@ -24,7 +24,7 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.rtClient = [GUMRottenTomatesClient sharedClient];
+    self.rtClient = [GUMRottenTomatoesClient sharedClient];
 //    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 //    NSString *jsonPath = [documents stringByAppendingPathComponent:@"searchresults.json"];
     NSURL *jsonPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"searchresult" withExtension:@"json"];

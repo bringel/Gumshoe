@@ -7,7 +7,7 @@
 //
 
 #import "GUMItemSearchViewController.h"
-#import "GUMRottenTomatesClient.h"
+#import "GUMRottenTomatoesClient.h"
 #import "GUMMovieDatabaseClient.h"
 #import "GUMMovieDetailViewController.h"
 #import "GUMMovieTableViewCell.h"
