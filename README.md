@@ -1,4 +1,4 @@
-Visor
+Gumshoe
 =================
 
 [![Build Status](https://travis-ci.org/bringel/Gumshoe.svg?branch=master)](https://travis-ci.org/bringel/Gumshoe)
