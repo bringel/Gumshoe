@@ -13,6 +13,14 @@
 
 @implementation GUMMovie
 
+/**
+ *  This method provides a dictionary that Mantle looks for when
+ *  transforming JSON to an object. The keys of the dictionary are
+ *  the names of the properties on the object, and the values are
+ *  the names of the properties in the JSON object
+ *
+ *  @return a dictionary with object to JSON property mappings
+ */
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
              @"moviedbID" : @"id",
@@ -46,9 +54,24 @@
     }];
 }
 
+- (NSMutableDictionary *)ratings{
+    if(_ratings == nil){
+        _ratings = [[NSMutableDictionary alloc] init];
+    }
+    return _ratings;
+}
+
+- (NSMutableDictionary *)sourceStatuses{
+    if(_sourceStatuses == nil){
+        _sourceStatuses = [[NSMutableDictionary alloc] init];
+    }
+    return _sourceStatuses;
+}
+
 - (void)updateNetflixStatus{
     if (!self.rottenTomatoesURL){
         NSLog(@"This movie %@ needs a RottenTomatoes URL",self);
+        return;
     }
     
     NSData *htmlData = [NSData dataWithContentsOfURL:self.rottenTomatoesURL];
@@ -59,7 +82,7 @@
     for(TFHppleElement *e in elements){
         if([[e.attributes valueForKey:@"class"] isEqualToString:@"streamNow"]){
             //movie is available on instant
-            self.netflixStatus = GUMAvailable;
+            [self.sourceStatuses setValue:GUMAvailable forKey:@"netflixInstant"];
             NSString *netflixLink = [e.attributes valueForKey:@"href"];
             NSArray *components = [netflixLink componentsSeparatedByString:@"/"];
             self.netflixID = [components lastObject];

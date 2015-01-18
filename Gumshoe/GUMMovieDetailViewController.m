@@ -81,6 +81,12 @@
             if([movie.imdbID isEqualToString:[NSString stringWithFormat:@"tt%@",[movieInfo valueForKeyPath:@"alternate_ids.imdb"]]]){
                 movie.rottenTomatoesID = [movieInfo valueForKey:@"id"];
                 movie.rottenTomatoesURL = [NSURL URLWithString:[movieInfo valueForKeyPath:@"links.alternate"]];
+                NSString *criticRating = [movieInfo valueForKeyPath:@"ratings.critics_rating"];
+                NSString *userRating = [movieInfo valueForKeyPath:@"ratings.audience_rating"];
+                NSString *criticScore = [movie valueForKeyPath:@"ratings.critics_score"];
+                NSString *userScore = [movie valueForKeyPath:@"ratings.audience_score"];
+                
+                
             }
         }
     }).then(^{
@@ -89,6 +95,7 @@
     promise.catch(^(NSError *error) {
         NSLog(@"Error %@",error);
     });
+    
 }
 
 /*

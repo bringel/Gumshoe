@@ -18,6 +18,12 @@ typedef NS_ENUM(NSUInteger, GUMMovieSourceStatus) {
     GUMAvailable,
     GUMNotAvailable,
 };
+
+typedef NS_ENUM(NSUInteger, GUMRottenTomatoesRating) {
+    GUMCertifiedFresh,
+    GUMFresh,
+    GUMRotten,
+};
 @interface GUMMovie : MTLModel <MTLJSONSerializing>
 
 @property (strong, nonatomic) NSString *title;
@@ -28,8 +34,9 @@ typedef NS_ENUM(NSUInteger, GUMMovieSourceStatus) {
 @property (strong, nonatomic) NSString *posterPath;
 @property (strong, nonatomic) NSString *rottenTomatoesID;
 @property (strong, nonatomic) NSURL *rottenTomatoesURL;
+@property (strong, nonatomic) NSMutableDictionary *ratings;
 @property (nonatomic) GUMMovieStatus status;
-@property (nonatomic) GUMMovieSourceStatus netflixStatus;
+@property (strong, nonatomic) NSMutableDictionary *sourceStatuses;
 @property (strong, nonatomic) NSString *netflixID;
 
 - (void)updateNetflixStatus;
