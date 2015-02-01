@@ -23,13 +23,13 @@
  */
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"moviedbID" : @"id",
-             @"theatricalReleaseDate" : @"release_date",
+             @"rottenTomatoesID" : @"id",
+             @"theatricalReleaseDate" : @"release_dates.theater",
              @"title" : @"title",
-             @"synopsis" : @"overview",
-             @"imdbID" : @"imdb_id",
-             @"posterPath" : @"poster_path",
-             @"status" : @"status"
+             @"synopsis" : @"synopsis",
+             @"imdbID" : @"alternate_ids.imdb",
+             @"posterURL" : @"posters.detailed",
+             @"rottenTomatoesURL" : @"links.alternate"
              };
 }
 
@@ -54,9 +54,56 @@
     }];
 }
 
-- (NSMutableDictionary *)ratings{
++ (NSValueTransformer *)posterURLJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^NSURL *(NSString *url) {
+        NSString *modifiedString = [url stringByReplacingOccurrencesOfString:@"tmb" withString:@"det"];
+        return [NSURL URLWithString:modifiedString];
+    }];
+}
+
++ (NSValueTransformer *)ratingsJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^NSDictionary *(NSDictionary *ratingsData) {
+        NSMutableDictionary *ratings = [[NSMutableDictionary alloc] init];
+        [ratings setValue:[ratingsData valueForKey:@"critics_score"] forKey:@"criticScore"];
+        [ratings setValue:[ratingsData valueForKey:@"audience_score"] forKey:@"audienceScore"];
+        
+        NSString *criticsRating = [ratingsData valueForKey:@"critics_rating"];
+        NSString *audienceRating = [ratingsData valueForKey:@"audience_rating"];
+        GUMRottenTomatoesRating critics;
+        GUMRottenTomatoesRating audience;
+        
+        if([criticsRating isEqualToString:@"Certified Fresh"]){
+            critics = GUMCertifiedFresh;
+        }
+        else if([criticsRating isEqualToString:@"Fresh"]){
+            critics = GUMFresh;
+        }
+        else if([criticsRating isEqualToString:@"Rotten"]){
+            critics = GUMRotten;
+        }
+        else{
+            critics = -1;
+        }
+        
+        if([audienceRating isEqualToString:@"Upright"]){
+            audience = GUMUpright;
+        }
+        else if([audienceRating isEqualToString:@"Spilled"]){
+            audience = GUMSpilled;
+        }
+        else{
+            audience = -1;
+        }
+        
+        [ratings setValue:@(critics) forKey:@"criticsRating"];
+        [ratings setValue:@(audience) forKey:@"audienceRating"];
+        
+        return [ratings copy];
+    }];
+}
+- (NSDictionary *)ratings{
     if(_ratings == nil){
-        _ratings = [[NSMutableDictionary alloc] init];
+        _ratings = [[NSDictionary alloc] init];
     }
     return _ratings;
 }

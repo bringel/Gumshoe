@@ -1,5 +1,5 @@
 //
-//  GUMItemDetailViewController.m
+//  GUMMovieDetailViewController.m
 //  Gumshoe
 //
 //  Created by Bradley Ringel on 7/15/14.
@@ -37,18 +37,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    PMKPromise *promise = [[GUMMovieDatabaseClient sharedClient] getMovieInformation:self.itemId];
+    PMKPromise *promise = [[GUMRottenTomatoesClient sharedClient] getMovieInformation:self.itemId];
     promise.then(^(NSDictionary *movieData) {
         NSError *error;
         self.movie = [MTLJSONAdapter modelOfClass:[GUMMovie class] fromJSONDictionary:movieData error:&error];
-        NSString *urlString = [NSString stringWithFormat:@"w342%@",self.movie.posterPath];
-        //self.posterImageView.imageURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString];
-        [self.posterImageView setImageWithURL: [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:urlString]];
+        
+        [self.posterImageView setImageWithURL: self.movie.posterURL];
         NSInteger component = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:self.movie.theatricalReleaseDate];
         self.titleLabel.text = [NSString stringWithFormat:@"%@ - (%ld)", self.movie.title, (long)component];
         self.synopsisTextView.text = self.movie.synopsis;
     }).then(^{
-        [self syncMovieWithRottenTomatoes:self.movie];
+        [self.movie updateNetflixStatus];
     });
     promise.catch(^(NSError *error) {
         NSLog(@"Error %@", error);
@@ -81,12 +80,6 @@
             if([movie.imdbID isEqualToString:[NSString stringWithFormat:@"tt%@",[movieInfo valueForKeyPath:@"alternate_ids.imdb"]]]){
                 movie.rottenTomatoesID = [movieInfo valueForKey:@"id"];
                 movie.rottenTomatoesURL = [NSURL URLWithString:[movieInfo valueForKeyPath:@"links.alternate"]];
-                NSString *criticRating = [movieInfo valueForKeyPath:@"ratings.critics_rating"];
-                NSString *userRating = [movieInfo valueForKeyPath:@"ratings.audience_rating"];
-                NSString *criticScore = [movie valueForKeyPath:@"ratings.critics_score"];
-                NSString *userScore = [movie valueForKeyPath:@"ratings.audience_score"];
-                
-                
             }
         }
     }).then(^{

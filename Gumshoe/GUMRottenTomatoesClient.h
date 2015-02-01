@@ -14,5 +14,6 @@
 + (instancetype)sharedClient;
 
 - (PMKPromise *)searchForMovieWithTitle:(NSString *)title;
+- (PMKPromise *)getMovieInformation:(NSNumber *)movieID;
 
 @end

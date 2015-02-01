@@ -71,13 +71,11 @@
     if([movie valueForKey:@"poster_path"] != [NSNull null]){
 //        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.posterImageView]; //in case this cell had other images loading
         cell.posterImageView.image = nil;
-        NSString *path = [NSString stringWithFormat:@"%@%@", @"w342", [movie valueForKey:@"poster_path"]];
-        NSURL *posterURL = [[[GUMMovieDatabaseClient sharedClient] posterBaseURL] URLByAppendingPathComponent:path];
-//        cell.posterImageView.imageURL = posterURL;
+        NSURL *posterURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
         [cell.posterImageView setImageWithURL: posterURL];
     }
 
-    NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKey:@"release_date"]];
+    NSDate *theaterRelease = [dateFormatter dateFromString:[movie valueForKeyPath:@"release_dates.theater"]];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     //TODO: Set the locale information
     cell.detailsLabel.text = [NSString stringWithFormat:@"In Theaters - %@",[dateFormatter stringFromDate:theaterRelease]];
@@ -89,7 +87,7 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
     NSString *searchText = searchController.searchBar.text;
-    PMKPromise *promise = [[GUMMovieDatabaseClient sharedClient] searchForMovieWithTitle:searchText];
+    PMKPromise *promise = [[GUMRottenTomatoesClient sharedClient] searchForMovieWithTitle:searchText];
     promise.then(^(NSArray *movieData) {
         self.searchResults = movieData;
         [self.tableView reloadData];

@@ -58,4 +58,20 @@
     }];
 }
 
+- (PMKPromise *)getMovieInformation:(NSNumber *)movieID{
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        NSString *pathString = [NSString stringWithFormat:@"movies/%@.json",movieID];
+        [self GET:pathString parameters:@{@"apikey" : [self _apiKey]}
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+            if(response.statusCode == 200){
+                NSDictionary *responseData = responseObject;
+                fulfill(responseData);
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            reject(error);
+        }];
+    }];
+}
+
 @end

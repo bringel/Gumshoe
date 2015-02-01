@@ -17,6 +17,11 @@
     // Override point for customization after application launch.
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     
+    UIColor *gumshoePurple = [UIColor colorWithRed:86.0/256.0 green:58.0/256.0 blue:146.0/256.0 alpha:1.0];
+    [[UINavigationBar appearance] setBarTintColor:gumshoePurple];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:0.9 alpha:1.0]];
+    [[UITabBar appearance] setTintColor:gumshoePurple];
+    application.statusBarStyle = UIStatusBarStyleLightContent;
     return YES;
 }
 							
